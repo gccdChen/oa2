@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 
-public class UiMessageCenter extends BaseUiAuth{
+public class UiMessageCenter extends BaseUiAuth {
 	private static List<Message> messages = new ArrayList<Message>();
 	private static String keyword = null;
 	/**
@@ -56,13 +56,13 @@ public class UiMessageCenter extends BaseUiAuth{
 		db = FinalDb.create(this);
 		refresh();
 	}
-	View menu = null;
+	
 	private void initCon() {
 		// TODO Auto-generated method stub
 		lv_messsages = (ListView) findViewById(R.id.lv_messsages);
 		edt_search = (EditText) findViewById(R.id.edt_search);
-		menu = findViewById(R.id.menu);
-		adapter = new MessageAdapter(this, messages);
+		super.menu = findViewById(R.id.menu);
+		adapter = new MessageAdapter(this, messages,db);
 		lv_messsages.setAdapter(adapter);
 	}
 
@@ -81,23 +81,5 @@ public class UiMessageCenter extends BaseUiAuth{
 		filter = true;
 		refresh();
 	}
-	private boolean showingMenu = false ;
-	public void showMenu(View view) {
-		// TODO Auto-generated method stub
-		if(showingMenu)
-			menu.setVisibility(View.GONE);
-		else
-			menu.setVisibility(View.VISIBLE);
-		showingMenu = !showingMenu;
-	}
 	
-	@Override
-	protected void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
-		if(menu!=null){
-			showingMenu = false;
-			menu.setVisibility(View.GONE);
-		}
-	}
 }

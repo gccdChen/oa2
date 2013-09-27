@@ -9,6 +9,8 @@ import scau.duolian.oa.model.Wdhb;
 import scau.duolian.oa.ui.UiPartnerDetail;
 import scau.duolian.oa.ui.UiPartnerList;
 import scau.duolian.oa.util.DateUtil;
+import scau.duolian.oa.util.ImageLoader;
+import scau.duolian.oa.util.StringUtil;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,13 +28,14 @@ public class PartnerListAdapter extends BaseAdapter{
 	public List<Wdhb> wdhbs = null;
 	public String keyword = null;
 	public boolean filter = false;
-	
+	private ImageLoader imageLoader = null;
 	private LayoutInflater inflater = null;
 	public PartnerListAdapter(Activity activity, List<Wdhb> wdhbs) {
 		super();
 		this.activity = activity;
 		this.wdhbs = wdhbs;
 		this.inflater = LayoutInflater.from(activity);
+		imageLoader = new ImageLoader();
 	}
 	
 	@Override
@@ -75,6 +78,8 @@ public class PartnerListAdapter extends BaseAdapter{
 			holder = (ViewHolder) view.getTag();
 		final Wdhb wdhb = wdhbs.get(position%wdhbs.size());
 		
+		if(!StringUtil.isBlank(wdhb.photo))
+			imageLoader.loadImage(wdhb.photo, holder.iv_face);
 		holder.tv_title.setText(wdhb.name);
 		OnClickListener clickListener = new View.OnClickListener() {
 			

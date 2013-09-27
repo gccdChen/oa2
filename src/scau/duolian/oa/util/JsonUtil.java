@@ -30,6 +30,9 @@ public class JsonUtil {
 		BaseModel modelObj = null;
 		String varField = null ;
 		try {
+			if(!modelClassName.contains(".")){
+				modelClassName = C.MODELPACKAGE + modelClassName;
+			}
 			modelObj = (BaseModel) Class.forName(modelClassName).newInstance();
 			Class<? extends BaseModel> modelClass = modelObj.getClass();
 			// auto-setting model fields

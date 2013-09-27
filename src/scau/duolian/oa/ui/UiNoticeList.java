@@ -63,7 +63,7 @@ public class UiNoticeList extends BaseUiAuth{
 		lv_messsages = (ListView) findViewById(R.id.lv_messsages);
 		edt_search = (EditText) findViewById(R.id.edt_search);
 		menu = findViewById(R.id.menu);
-		adapter = new MessageAdapter(this, messages);
+		adapter = new MessageAdapter(this, messages,db);
 		lv_messsages.setAdapter(adapter);
 	}
 

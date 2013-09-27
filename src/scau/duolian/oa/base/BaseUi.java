@@ -26,10 +26,12 @@ import android.os.Message;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.widget.Toast;
 
-public class BaseUi extends Activity {
+public class BaseUi extends Activity implements OnTouchListener{
 	private List<Activity> activities = new ArrayList<Activity>();
 	public static FinalHttp fhttp;
 
@@ -52,6 +54,17 @@ public class BaseUi extends Activity {
 			fhttp = new FinalHttp();
 	}
 
+	protected boolean showingMenu = false ;
+	protected View menu = null;
+	public void showMenu(View view) {
+		// TODO Auto-generated method stub
+		if(showingMenu)
+			menu.setVisibility(View.GONE);
+		else
+			menu.setVisibility(View.VISIBLE);
+		showingMenu = !showingMenu;
+	}
+	
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
@@ -79,6 +92,10 @@ public class BaseUi extends Activity {
 		super.onPause();
 		// debug memory
 		debugMemory("onPause");
+		if(menu!=null){
+			showingMenu = false;
+			menu.setVisibility(View.GONE);
+		}
 	}
 
 	@Override
@@ -371,5 +388,15 @@ public class BaseUi extends Activity {
 	private Intent createSoundRecorderIntent() {
 		return new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
 	}
+
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		// TODO Auto-generated method stub
+		if(menu != null && menu.VISIBLE == View.VISIBLE){
+			menu.setVisibility(View.GONE);
+		}
+		return true;
+	}
+
 
 }

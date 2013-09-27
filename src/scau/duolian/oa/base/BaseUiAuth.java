@@ -8,9 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class BaseUiAuth extends BaseUi {
-	View menu = null;
-	boolean showingMenu = false;
-
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -35,6 +33,10 @@ public class BaseUiAuth extends BaseUi {
 		}
 	}
 
+	public boolean isAdmin(){
+		return getUser().isIsadmin();
+	}
+	
 	public User getUser() {
 		// TODO Auto-generated method stub
 		return ((BaseApp) getApplication()).owner;
@@ -47,14 +49,5 @@ public class BaseUiAuth extends BaseUi {
 	public void doBack(View view) {
 		// TODO Auto-generated method stub
 		finish();
-	}
-
-	public void showMenu(View view) {
-		// TODO Auto-generated method stub
-		if (showingMenu)
-			menu.setVisibility(View.GONE);
-		else
-			menu.setVisibility(View.VISIBLE);
-		showingMenu = !showingMenu;
 	}
 }

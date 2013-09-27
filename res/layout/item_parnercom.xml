@@ -32,6 +32,7 @@
             android:text="您好.我叫张院系dfddefwfwfewwwwwwwwweeeeeeeeeeeeeeeeeeeeeeee"
             android:textSize="14sp" />
         <ImageView
+            android:id="@+id/iv_attch"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="#00ff00"

@@ -18,6 +18,7 @@ public class UiPartnerList extends BaseUiAuth{
 	private List<Wdhb> wdhbs = new ArrayList<Wdhb>();
 	private ListView lv_content = null;
 	private FinalDb finalDb = null;
+	private View btn_add = null;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -49,6 +50,12 @@ public class UiPartnerList extends BaseUiAuth{
 				finish();
 			}
 		});
+		btn_add = findViewById(R.id.btn_add);
+		if(isAdmin()){
+			btn_add.setVisibility(View.VISIBLE);
+		}else{
+			btn_add.setVisibility(View.GONE);
+		}
 	}
 	
 	public void addPartner(View view){

@@ -8,8 +8,11 @@ import scau.duolian.oa.base.BaseMessage;
 import scau.duolian.oa.base.BaseUiAuth;
 import scau.duolian.oa.base.C;
 import scau.duolian.oa.base.MyCallBack;
+import scau.duolian.oa.model.Wdbm;
 import scau.duolian.oa.model.Wdhb;
 import scau.duolian.oa.util.DeviceHelper;
+import scau.duolian.oa.util.ImageLoader;
+import scau.duolian.oa.util.StringUtil;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +30,9 @@ public class UiPartnerDetail extends BaseUiAuth{
 	private TextView tv_email = null;
 	private TextView tv_phone = null;
 	private Wdhb wdhb = null;
+	private ImageLoader imageLoader = null;
+	private Wdbm wdbm;
+	private Wdbm org = null;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -37,6 +43,18 @@ public class UiPartnerDetail extends BaseUiAuth{
 		Intent intent = getIntent();
 		String hbid = intent.getStringExtra(C.params.hbid); 
 		wdhb = db.findById(hbid, Wdhb.class);
+		wdbm = db.findById(wdhb.dept,Wdbm.class);
+		// 获取顶层组织
+		
+		if(wdbm != null && wdbm.parentid != null){
+			Wdbm temp = wdbm;
+			do{
+				temp = db.findById(wdbm.parentid, Wdbm.class);
+				org = temp;
+			}while(org!=null && org.parentid != null);
+		}
+		
+		imageLoader = new ImageLoader();
 		initCon();
 		initData();
 	}
@@ -50,17 +68,25 @@ public class UiPartnerDetail extends BaseUiAuth{
 		tv_email = (TextView) findViewById(R.id.tv_email);
 		tv_phone = (TextView) findViewById(R.id.tv_phone);
 		iv_face = (ImageView) findViewById(R.id.iv_face);
+		
 	}
 
 	private void initData(){
 		
 		tv_name.setText(wdhb.name);
-		tv_org.setText(wdhb.dept);
-		tv_department.setText(wdhb.dept);
+		if(wdbm != null){
+			if(org == null)
+				org = wdbm;
+			tv_org.setText(org.title);
+			tv_department.setText(wdbm.title);
+		}
 		tv_job.setText(wdhb.job);
 		tv_email.setText(wdhb.email);
 		tv_phone.setText(wdhb.mobile);
 		fb.display(iv_face, wdhb.photo);
+		
+		if(!StringUtil.isBlank(wdhb.photo))
+			imageLoader.loadImage(wdhb.photo, iv_face);
 	}
 	
 	public void dail(View view){
@@ -70,7 +96,9 @@ public class UiPartnerDetail extends BaseUiAuth{
 		DeviceHelper.sendEmail(this, wdhb.email);
 	}
 	public void sendMsg(View view){
-		overlay(UiParnerCom.class);
+		Bundle bundle = new Bundle();
+		bundle.putString("hbid", wdhb.id);
+		overlay(UiParnerCom.class,bundle);
 	}
 	public void edit(View view){
 		overlay(UiPersonSetting.class);

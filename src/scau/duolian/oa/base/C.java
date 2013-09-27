@@ -3,6 +3,7 @@ package scau.duolian.oa.base;
 import android.os.Environment;
 
 public class C {
+	public static final String MODELPACKAGE = "scau.duolian.oa.model.";
 	/////// 目录
 	public static final class dir{
 		public static final String base				= "/sdcard/oa";

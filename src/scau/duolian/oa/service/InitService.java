@@ -82,10 +82,10 @@ public class InitService extends BaseService{
 					msg.what = UiMessageCenter.REFRESH_CODE;
 					UiMessageCenter.handler.sendMessage(msg);
 					
-					List<String> list = ImageLoader.getUrls(result);
-					ImgDownload.dir = C.dir.temp;
-					ImgDownload download = new ImgDownload(list);
-					download.start();
+//					List<String> list = ImageLoader.getUrls(result);
+//					ImgDownload.dir = C.dir.temp;
+//					ImgDownload download = new ImgDownload(list);
+//					download.start();
 				} catch (EntityEmptyException e) {
 					e.printStackTrace();
 				}

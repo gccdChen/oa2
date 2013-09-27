@@ -1,6 +1,8 @@
 package scau.duolian.oa.model;
 
-public class Wddh {
+import scau.duolian.oa.base.BaseModel;
+
+public class Wddh extends BaseModel{
 	public String id;
 	public String author;
 	public String bz;

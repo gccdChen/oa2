@@ -23,13 +23,14 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.conn.ConnectTimeoutException;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
 import scau.duolian.oa.R;
+import scau.duolian.oa.base.BaseUi;
 import scau.duolian.oa.base.C;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -252,7 +253,7 @@ public class ImageLoader {
 
 	public Bitmap loadImageFromInternet(String url) {
 		Bitmap bitmap = null;
-		HttpClient client = AndroidHttpClient.newInstance("Android");
+		DefaultHttpClient client = (DefaultHttpClient) BaseUi.fhttp.getHttpClient();
 		HttpParams params = client.getParams();
 		HttpConnectionParams.setConnectionTimeout(params, 3000);
 		HttpConnectionParams.setSocketBufferSize(params, 3000);
@@ -295,7 +296,7 @@ Log.i("loadImageFromInternet", "url:"+url);
 			httpGet.abort();
 			e.printStackTrace();
 		} finally {
-			((AndroidHttpClient) client).close();
+//			client.close();
 		}
 		return bitmap;
 	}

@@ -1,10 +1,8 @@
 package scau.duolian.oa.ui;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import net.tsz.afinal.FinalDb;
-
 import scau.duolian.oa.R;
 import scau.duolian.oa.adapter.ProTaskListAdapter;
 import scau.duolian.oa.adapter.TaskAdapter;
@@ -31,7 +29,7 @@ public class UiProjectTask extends BaseUiAuth{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_project_task);
 		
-		db.create(this);
+		db = FinalDb.create(this);
 		initCon();
 		initdata();
 	}
