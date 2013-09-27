@@ -20,6 +20,8 @@ import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
+import scau.duolian.oa.base.C;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.http.AndroidHttpClient;
@@ -28,7 +30,7 @@ import android.util.Log;
 public class ImgDownload extends Thread{
 	private static String TAG = "ImgDownload";
 	private List<String> urls;
-	public static String dir = null;
+	public static String dir = C.dir.temp;
 	
 	public ImgDownload(List<String> urls) {
 		super();

@@ -85,12 +85,8 @@ public class InitService extends BaseService{
 					
 					List<String> list = ImageLoader.getUrls(result);
 					ImgDownload.dir = C.dir.temp;
-					List<String>[] lists =new ArrayList[threadnum];
-					for(int i= 0; i<threadnum ;i++){
-						lists[i] = list.subList(i, list.size()/threadnum*(i+1));
-						ImgDownload download = new ImgDownload(lists[i]);
-						download.start();
-					}
+					ImgDownload download = new ImgDownload(list);
+					download.start();
 				} catch (EntityEmptyException e) {
 					e.printStackTrace();
 				}

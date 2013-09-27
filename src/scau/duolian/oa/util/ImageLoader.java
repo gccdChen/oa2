@@ -305,7 +305,7 @@ Log.i("loadImageFromInternet", "url:"+url);
 			return url.substring(url.lastIndexOf('/'));
 		return null;
 	}
-	final static Pattern p = Pattern.compile("http://\\S+\\.(gif|jpg|jpeg|bmp|bmp|png)");
+	final static Pattern p = Pattern.compile("\"(http://[^\"]+.(gif|jpg|jpeg|bmp|bmp|png))\"");
 	///////////////************************* 		字符 	*******************************///////////////
 	/**
 	 * 
@@ -314,9 +314,9 @@ Log.i("loadImageFromInternet", "url:"+url);
 	 */
 	public static List<String> getUrls(String src){
 		List<String> picUrls = new ArrayList<String>();
-		Matcher m = p.matcher(src);
+		Matcher m = p.matcher(src.replaceAll("\\\\/", "/"));
 		while(m.find()){
-			picUrls.add(m.group());
+			picUrls.add(new String(m.group()));
 		}
 		return picUrls;	
 	}
