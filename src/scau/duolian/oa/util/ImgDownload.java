@@ -59,7 +59,7 @@ public class ImgDownload extends Thread{
 		HttpGet httpGet = null;
 		try {
 Log.i("loadImageFromInternet", "url:"+url);
-			httpGet = new HttpGet(url);
+			httpGet = new HttpGet(new String(url));
 			response = client.execute(httpGet);
 			int stateCode = response.getStatusLine().getStatusCode();
 			if (stateCode != HttpStatus.SC_OK) {
