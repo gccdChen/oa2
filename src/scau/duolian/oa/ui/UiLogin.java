@@ -98,8 +98,7 @@ public class UiLogin extends BaseUi {
 						user.password = password;
 						if(cb_remember_me.isChecked()){
 							Editor editor = preferences.edit();
-							user.password = "111111";//密码
-							editor.putString(C.config.user, JsonUtil.object2Json((user)));
+							editor.putString(C.config.user, result);
 							editor.commit();
 						}
 						((BaseApp) getApplication()).owner = user;

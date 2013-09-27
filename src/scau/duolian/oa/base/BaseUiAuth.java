@@ -2,6 +2,8 @@ package scau.duolian.oa.base;
 
 import scau.duolian.oa.model.User;
 import scau.duolian.oa.ui.UiLogin;
+import scau.duolian.oa.util.JsonUtil;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,7 +16,12 @@ public class BaseUiAuth extends BaseUi {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		if (!isLogin()) {
-			forward(UiLogin.class);
+			SharedPreferences preferences = getPreferences(0);
+			if(preferences.contains(C.config.user)){
+				String result = preferences.getString(C.config.user, "");
+				setUser(JsonUtil.json2user(result));
+			}else
+				forward(UiLogin.class);
 		}
 	}
 
@@ -31,6 +38,10 @@ public class BaseUiAuth extends BaseUi {
 	public User getUser() {
 		// TODO Auto-generated method stub
 		return ((BaseApp) getApplication()).owner;
+	}
+	
+	private void setUser(User user){
+		((BaseApp) getApplication()).owner = user;
 	}
 
 	public void doBack(View view) {
