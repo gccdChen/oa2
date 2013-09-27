@@ -1,0 +1,136 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/rl_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:background="@color/top_back"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            style="@style/top_iv"
+            android:onClick="showMenu"
+            android:src="@drawable/top_bartype" />
+
+        <View
+            android:id="@+id/view1"
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height" />
+
+        <Spinner
+            android:id="@+id/spi_miletype"
+            style="@style/top_tv"/>
+        
+        <ImageView 
+            android:id="@+id/btn_add"
+		    style="@style/top_iv"
+		    android:onClick="doAdd"
+		    android:src="@drawable/top_add"
+		    android:layout_alignParentRight="true"
+		    />
+        <ImageView
+            android:id="@+id/btn_search" 
+		    style="@style/top_iv"
+		    android:src="@drawable/search"
+		    android:layout_marginRight="@dimen/top_height"
+		    android:layout_alignParentRight="true"
+		    />
+         <View
+             android:id="@+id/view2"
+            style="@style/top_div"
+            android:layout_toLeftOf="@id/btn_search"
+            android:layout_marginLeft="@dimen/top_height" />
+        
+         <View
+             android:id="@+id/view3"
+            style="@style/top_div"
+            android:layout_toLeftOf="@id/btn_add"
+            />
+        
+    </RelativeLayout>
+<LinearLayout
+      android:id="@+id/ll_bottom"
+      android:layout_height="@dimen/top_height"
+      android:layout_width="match_parent" 
+      android:orientation="horizontal" 
+      android:layout_alignParentBottom="true"
+      android:background="@color/top_back"
+      >
+      <Button
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:textSize="13sp"
+          android:text="全部"
+          android:onClick="selAll"
+          android:background="@color/top_back"
+          ></Button>
+     <View
+            style="@style/top_div"
+          />
+       <Button
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:textSize="13sp"
+          android:onClick="selWait"
+          android:text="待办"
+          android:background="@color/top_back"
+          ></Button>
+         <View
+            style="@style/top_div"
+          />
+        <Button
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:textSize="13sp"
+          android:onClick="selIng"
+          android:text="进行"
+          android:background="@color/top_back"
+          ></Button>
+          <View
+            style="@style/top_div"
+          />
+         <Button
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:textSize="13sp"
+          android:onClick="selEnd"
+          android:text="结束"
+          android:background="@color/top_back"
+          ></Button>
+  </LinearLayout>
+    <View
+        android:id="@+id/view1" 
+        android:layout_below="@id/rl_1"
+        style="@style/main_boder" />
+    
+    
+   <View
+       android:id="@+id/view2"
+       android:layout_above="@id/ll_bottom"
+       style="@style/main_boder" 
+       />
+<ListView
+    android:id="@+id/lv_flow"
+    android:layout_below="@id/view1"
+    android:layout_above="@id/view2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    ></ListView>
+  
+  <scau.duolian.oa.widget.MenuWidget
+      android:id="@+id/menu"
+      android:layout_below="@id/view1"
+      android:layout_marginLeft="20dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" 
+      android:visibility="gone">
+  </scau.duolian.oa.widget.MenuWidget>
+</RelativeLayout>

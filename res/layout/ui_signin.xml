@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:background="@color/top_back"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            style="@style/top_iv"
+            android:onClick="showMenu"
+            android:src="@drawable/top_bartype" />
+
+        <View
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height" />
+
+        <TextView
+            style="@style/top_tv"
+            android:text="位置签到" />
+            <View
+            style="@style/top_div"
+            android:layout_marginRight="@dimen/top_height" 
+            android:layout_alignParentRight="true"/>
+            
+        <ImageView 
+		    style="@style/top_iv"
+		    android:src="@drawable/top_position"
+		    android:layout_alignParentRight="true"
+		    />
+    </RelativeLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1" 
+    android:orientation="vertical"
+    >
+      <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="10dp"
+                    android:text="当前时间" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5" 
+                    android:paddingLeft="10dp"
+                    android:text="2013000020020"/>
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+            
+             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="10dp"
+                    android:text="卫星定位" />
+
+                <TextView
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:lines="2"
+                    android:maxLines="2" 
+                    android:paddingLeft="10dp"
+                    android:text="经度：2222\n维度: 2222"/>
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+                  <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="10dp"
+                    android:text="地理位置" />
+
+                <TextView
+                    android:id="@+id/tv_addr"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:paddingLeft="10dp"
+                    android:text="经度：2222维度2222"/>
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+            
+                  <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="10dp"
+                    android:text="备注" />
+
+                <EditText
+                    android:id="@+id/tv_ds"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:paddingLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:hint="顺便说两句"
+                    android:text="经度：22"/>
+            </LinearLayout>
+
+</LinearLayout>
+    <View style="@style/main_boder" />
+<include  layout="@layout/include_bottom"/>
+</LinearLayout>

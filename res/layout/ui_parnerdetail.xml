@@ -1,0 +1,271 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:background="@color/top_back"
+        android:gravity="center_vertical"
+         >
+
+        <Button
+            style="@style/top_iv"
+            android:background="@drawable/top_arr"
+            android:onClick="doBack"/>
+
+        <View 
+           style="@style/top_div"
+            android:layout_marginLeft="75dp"
+            />
+        <TextView
+            style="@style/top_tv"
+            android:text="伙伴详情"
+             />
+           <View 
+            style="@style/top_div"
+            android:layout_marginRight="75dp"
+            android:layout_alignParentRight="true"
+            />
+		<ImageView 
+		    style="@style/top_iv"
+		    android:src="@drawable/top_right"
+		    android:layout_alignParentRight="true"
+		    android:onClick="edit"
+		    />
+		<ImageView 
+		    style="@style/top_iv"
+		    android:src="@drawable/forbidden"
+		    android:scaleType="fitXY"
+		    android:layout_alignParentRight="true"
+		    android:onClick="forbidden"
+		    />
+    </RelativeLayout>
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="@color/top_div" 
+          />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:background="@color/gray_forth"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="也无晴"
+            android:textSize="17sp" 
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/iv_face"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="#ff0000"
+            android:scaleType="center" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="[组织]"
+                    android:textColor="@color/pardet_textcolor"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_org"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="广州多联公司"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="[部门]"
+                    android:textColor="@color/pardet_textcolor"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_department"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="销售部"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="[职务]"
+                    android:textColor="@color/pardet_textcolor"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_job"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="经理"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/div" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="发信息:"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/msg" 
+            android:onClick="sendMsg"/>
+    </LinearLayout>
+
+    <include layout="@layout/div" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="发邮件:"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/email"
+            android:onClick="sendEmail" />
+    </LinearLayout>
+
+    <include layout="@layout/div" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="打电话:"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:inputType="phone" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/phone"
+            android:onClick="dail" />
+    </LinearLayout>
+    <include layout="@layout/div" />
+  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="看日期:"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/date" 
+            android:onClick="showCalender"
+            />
+    </LinearLayout>
+    <include layout="@layout/div" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/gray_forth"
+        android:gravity="center" >
+    </LinearLayout>
+
+</LinearLayout>

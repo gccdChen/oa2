@@ -1,0 +1,136 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:background="@color/top_back"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            style="@style/top_iv"
+            android:onClick="doBack"
+            android:src="@drawable/top_arr" />
+
+        <View
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height" />
+
+        <TextView
+            style="@style/top_tv"
+            android:text="里程碑详情" />
+        <ImageView 
+		    style="@style/top_iv"
+		    android:src="@drawable/top_setting"
+		    android:layout_marginRight="@dimen/top_height"
+		    android:layout_alignParentRight="true"
+		    />
+        <ImageView 
+		    style="@style/top_iv"
+		    android:src="@drawable/top_export"
+		    android:layout_alignParentRight="true"
+		    />
+    </RelativeLayout>
+
+    <View style="@style/main_boder" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        style="@style/main_projectdetail_item_atr"
+        android:text="项目名称" />
+
+      <TextView
+          style="@style/main_projectdetail_item_content"
+          android:text="云平台设计"
+          android:id="@+id/tv_projectname" />
+
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        style="@style/main_projectdetail_item_atr"
+        android:layout_width="70dp"
+        android:layout_marginLeft="20dp"
+        android:text="里程碑名称" />
+
+      <TextView
+         android:id="@+id/tv_title"
+        android:text="2013-01-20"
+       style="@style/main_projectdetail_item_content"
+        />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        style="@style/main_projectdetail_item_atr"
+        android:text="设定日期" />
+
+      <TextView
+        android:text="2013-01-20"
+       style="@style/main_projectdetail_item_content"
+		android:id="@+id/tv_rq"
+        />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+    <TextView
+        android:id="@+id/tv_tx"
+        android:text="提醒"
+        style="@style/main_projectdetail_item_atr"
+        />
+      <TextView
+        android:text="2013-01-20"
+       style="@style/main_projectdetail_item_content"
+        />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+    <TextView
+       
+        android:text="详细内容"
+        style="@style/main_projectdetail_item_atr"
+        />
+      <TextView
+         android:id="@+id/tv_xx"  
+        android:text="2013-01-20"
+       style="@style/main_projectdetail_item_content"
+        />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+    <TextView
+        android:text="小结"
+        style="@style/main_projectdetail_item_atr"
+        />
+      <TextView
+          android:id="@+id/tv_xj"
+        android:text="2013-01-20"
+       style="@style/main_projectdetail_item_content"
+        />
+</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/login_background">
+
+	<ImageView
+	    android:id="@+id/iv_logo"
+	    android:layout_width="230dp"
+	    android:layout_height="70dp"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="25dp"
+	    android:layout_marginBottom="15dp"
+	    android:scaleType="fitXY"
+	    android:src="@drawable/login_logo" />
+
+	<LinearLayout
+	    android:id="@+id/ll_2"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:layout_below="@+id/iv_logo"
+	    android:layout_margin="5dp"
+	    android:orientation="vertical"
+	    android:paddingLeft="5dp" >
+
+	    <EditText
+	        android:id="@+id/edt_account"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_margin="5dp"
+	        android:padding="5dp"
+	        android:textColor="@color/black"
+	        android:textSize="@dimen/medium" 
+	        android:background="@drawable/shape_login_edt"
+	        android:hint="@string/input_email">
+	    </EditText>
+	    <EditText
+	        android:id="@+id/edt_password"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_margin="5dp"
+	        android:padding="5dp"
+	        android:inputType="textPassword"
+	          android:background="@drawable/shape_login_edt"
+	        android:textColor="@color/black"
+	        android:textSize="@dimen/medium" 
+	        android:hint="@string/config_password">
+	    </EditText>
+	    <EditText
+	        android:id="@+id/edt_affirm_password"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_margin="5dp"
+	        android:padding="5dp"
+	         android:inputType="textPassword"
+	          android:background="@drawable/shape_login_edt"
+	        android:textColor="@color/black"
+	        android:textSize="@dimen/medium" 
+	        android:hint="@string/affirm_password">
+	    </EditText>
+	    <RelativeLayout 
+	           android:layout_width="match_parent"
+		       android:layout_height="wrap_content"
+		       android:layout_margin="5dp">
+	    	<EditText
+		        android:id="@+id/edt_verifi_code"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:padding="5dp"
+		        android:inputType="number"
+		         android:background="@drawable/shape_login_edt"
+		        android:textColor="@color/black"
+		        android:textSize="@dimen/medium" 
+		        android:hint="@string/verifi_code">
+	    	</EditText>
+
+	    	<ImageView
+	    	    android:id="@+id/iv_verifi_code"
+	    	    android:layout_width="60dp"
+	    	    android:layout_height="wrap_content"
+	    	    android:layout_alignParentRight="true"
+	    	    android:layout_centerVertical="true"
+	    	    android:layout_marginRight="5dp"
+	    	    android:scaleType="fitXY"
+	    	    android:src="@drawable/test_vifi_code" />
+
+	    </RelativeLayout>
+	</LinearLayout>
+
+	<Button
+	    android:id="@+id/btn_reg"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/ll_2"
+	    android:layout_margin="5dp"
+	    android:background="@drawable/shape_login_btn"
+	    android:gravity="center"
+	    android:onClick="doReg"
+	    android:text="@string/reg" />
+	
+	<RelativeLayout 
+	    android:id="@+id/rl_1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginBottom="20dp">
+	    <LinearLayout 
+	        android:id="@+id/ll_1"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:gravity="center">
+	        <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/hasaccount"
+	            android:textColor="@color/gray_first"
+	            android:textSize="14sp"/>
+	        <TextView 
+	             android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/loginnow"
+	            android:textColor="@color/blue"
+	            android:clickable="true"
+	            android:onClick="toLogin"
+	            android:textSize="16sp"/>
+	    </LinearLayout>
+	    <View 
+	        	android:id="@+id/div_1"
+	            android:layout_width="match_parent"
+	            android:layout_height="1dp"
+	            android:layout_marginLeft="20dp"
+	            android:layout_marginRight="20dp"
+	            android:layout_below="@id/ll_1"
+	            android:background="@color/greenorange"/>
+	    
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/div_1"
+	        android:layout_centerHorizontal="true"
+	        android:textSize="12sp"
+	        android:text="@string/copyright"/>
+	</RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_login"
+        android:layout_centerHorizontal="true"
+        android:text="@string/reg_declare"
+        android:textSize="10sp" />
+
+</RelativeLayout>

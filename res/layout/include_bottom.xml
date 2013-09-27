@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/top_height"
+    android:background="@color/top_back" 
+    android:orientation="horizontal"
+    >
+    <Button
+       android:layout_width="0dp"
+       android:layout_height="match_parent" 
+       android:layout_weight="1" 
+       android:text="确定"
+       android:onClick="doSure"
+       android:background="@color/top_back" 
+        android:textSize="15sp"
+        />
+    <View
+        style="@style/top_div"
+        />
+     <Button
+       android:layout_width="0dp"
+       android:layout_height="match_parent" 
+       android:layout_weight="1" 
+       android:onClick="doBack"
+       android:text="返回"
+       android:background="@color/top_back" 
+        android:textSize="15sp"
+        />
+    
+
+</LinearLayout>

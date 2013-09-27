@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/rl_head"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:layout_alignParentTop="true"
+        android:background="@color/top_back"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            style="@style/top_iv"
+            android:onClick="doBack"
+            android:src="@drawable/top_arr" />
+
+        <View
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_tv_marleft" />
+
+        <TextView
+            style="@style/top_tv"
+            android:text="任务详情" />
+
+        <ImageView
+            android:id="@+id/iv_to_calender"
+            style="@style/top_iv"
+            android:layout_alignParentRight="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/calendar_btn" />
+
+        <ImageView
+            android:id="@+id/iv_to_edit"
+            style="@style/top_iv"
+            android:layout_toLeftOf="@id/iv_to_calender"
+            android:scaleType="fitXY"
+            android:src="@drawable/edit" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view1"
+        style="@style/main_boder"
+        android:layout_below="@id/rl_head" />
+
+    <RelativeLayout
+        android:id="@+id/include_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/top_back"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/pic_bottom"
+            android:layout_width="@dimen/top_height"
+            android:layout_height="match_parent"
+            android:onClick="doSelectFile"
+            android:scaleType="center"
+            android:src="@drawable/pic" />
+
+        <View
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height" />
+
+        <TextView
+            android:id="@+id/iv_send"
+            android:layout_width="@dimen/top_height"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:onClick="doSend"
+            android:text="发送"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edt_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/iv_send"
+            android:layout_toRightOf="@id/pic_bottom"
+            android:gravity="left"
+            android:hint=" 跟他/她说两句" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/top_height"
+            android:background="@color/top_div" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@id/include_bottom"
+        android:background="#000000" />
+
+    <ExpandableListView
+        android:id="@+id/elv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/view2"
+        android:layout_below="@+id/view1" >
+    </ExpandableListView>
+
+</RelativeLayout>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btn_to_message"
+                style="@style/widget_menu_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="消息中心" />
+
+            <ImageView
+                android:layout_width="@dimen/menu_item_image"
+                android:layout_height="@dimen/menu_item_image"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/menu_item_message" />
+            
+            <View 
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btn_to_partner"
+                style="@style/widget_menu_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="团队伙伴" />
+
+            <ImageView
+                android:layout_width="@dimen/menu_item_image"
+                android:layout_height="@dimen/menu_item_image"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/menu_item_partner" />
+            
+            <View 
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btn_to_pro"
+                style="@style/widget_menu_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="项目任务" />
+
+            <ImageView
+                android:layout_width="@dimen/menu_item_image"
+                android:layout_height="@dimen/menu_item_image"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/menu_item_pro" />
+            
+            <View 
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btn_to_proccess"
+                style="@style/widget_menu_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="工作流程" />
+
+            <ImageView
+                android:layout_width="@dimen/menu_item_image"
+                android:layout_height="@dimen/menu_item_image"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/menu_item_process" />
+            
+            <View 
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btn_to_backup"
+                style="@style/widget_menu_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="日程备忘" />
+
+            <ImageView
+               android:layout_width="@dimen/menu_item_image"
+                android:layout_height="@dimen/menu_item_image"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/menu_item_backup" />
+            
+            <View 
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btn_to_notice"
+                style="@style/widget_menu_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="通知公告" />
+
+            <ImageView
+               android:layout_width="@dimen/menu_item_image"
+                android:layout_height="@dimen/menu_item_image"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/menu_item_notice" />
+            
+            <View 
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btn_to_check"
+                style="@style/widget_menu_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="考勤报道" />
+
+            <ImageView
+               android:layout_width="@dimen/menu_item_image"
+                android:layout_height="@dimen/menu_item_image"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/menu_item_check" />
+            
+            <View 
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btn_to_ks"
+                style="@style/widget_menu_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="问卷考试" />
+
+            <ImageView
+                android:layout_width="@dimen/menu_item_image"
+                android:layout_height="@dimen/menu_item_image"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/menu_item_ks" />
+            
+            <View 
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

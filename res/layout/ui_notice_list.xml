@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_bar_height"
+        android:layout_alignParentTop="true"
+        android:background="@color/gray_second"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_menu"
+            android:layout_width="@dimen/header_bar_height"
+            android:layout_height="@dimen/header_bar_height"
+            android:background="@drawable/menu_icon"
+            android:onClick="showMenu" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="left|center_vertical"
+            android:text="通知列表"
+            android:textSize="23sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/ll_1"
+        android:background="@color/gray_third" />
+
+  <ListView
+      android:id="@+id/lv_messsages"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_above="@+id/view2"
+      android:layout_below="@id/view1" >
+
+    </ListView>
+
+  <scau.duolian.oa.widget.MenuWidget
+      android:id="@+id/menu"
+      android:layout_below="@id/view1"
+      android:layout_marginLeft="20dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" 
+      android:visibility="gone">
+  </scau.duolian.oa.widget.MenuWidget>
+
+  <View
+      android:layout_above="@id/ll_2"
+      android:id="@+id/view2"
+      android:layout_width="match_parent"
+      android:layout_height="2dp"
+      android:background="@color/gray_third" />
+
+    <LinearLayout
+        android:id="@+id/ll_2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/footer_bar_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray_second"
+        android:focusable="true"  
+  		android:focusableInTouchMode="true"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/edt_search"
+            android:textSize="18sp"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|left"
+            android:background="@color/white"
+            android:hint="@string/search_hit"
+            android:padding="5dp" 
+            />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:onClick="doSearch"
+            android:background="@drawable/btn_send" />
+    </LinearLayout>
+</RelativeLayout>

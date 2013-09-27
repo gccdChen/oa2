@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/top_height"
+    android:background="@color/top_back"
+    android:orientation="horizontal" 
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ImageView
+        android:id="@+id/pic_bottom"
+        android:layout_width="@dimen/top_height"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:onClick="doSelectFile"
+        android:src="@drawable/pic" />
+
+    <View
+        style="@style/top_div"
+        android:layout_marginLeft="@dimen/top_height" />
+   <TextView
+        android:id="@+id/iv_send"
+        android:layout_width="@dimen/top_height"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="发送"
+        android:onClick="doSend"
+        android:textSize="15sp" />
+    <EditText
+        android:id="@+id/edt_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/iv_send"
+        android:layout_toRightOf="@id/pic_bottom"
+        android:gravity="left"
+        android:hint=" 跟他/她说两句" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/top_height"
+        android:background="@color/top_div" />
+
+ 
+
+</RelativeLayout>

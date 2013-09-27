@@ -1,0 +1,212 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:background="@color/top_back"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            style="@style/top_iv"
+            android:onClick="doBack"
+            android:src="@drawable/top_arr" />
+
+        <View
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height" />
+
+        <TextView
+            style="@style/top_tv"
+            android:text="新建项目" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:hint="不超过12个汉字"
+                    android:maxEms="12"
+                    android:text="项目名称" />
+
+                <EditText
+                    android:id="@+id/edt_title"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5" />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="开始日期" />
+
+                <EditText
+                    android:id="@+id/edt_jhksrq"
+                    style="@style/pro_main_item_edt" />
+
+                <ImageView
+                    android:layout_width="@dimen/main_item_height"
+                    android:layout_height="@dimen/main_item_height"
+                    android:src="@drawable/date_project" />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="结束日期" />
+
+                <EditText
+                    android:id="@+id/edt_jhjsrq"
+                    style="@style/pro_main_item_edt" />
+
+                <ImageView
+                    android:layout_width="@dimen/main_item_height"
+                    android:layout_height="@dimen/main_item_height"
+                    android:src="@drawable/date_project" />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="负责人" />
+
+                <Spinner
+                    android:id="@+id/et_fzr"
+                    style="@style/pro_main_item_edt" />
+
+                <ImageView
+                    android:layout_width="@dimen/main_item_height"
+                    android:layout_height="@dimen/main_item_height"
+                    android:src="@drawable/person" />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="项目成员" />
+
+                <Spinner
+                    android:id="@+id/et_cy"
+                    style="@style/pro_main_item_edt" />
+
+                <ImageView
+                    android:layout_width="@dimen/main_item_height"
+                    android:layout_height="@dimen/main_item_height"
+                    android:src="@drawable/observer" />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="观察员" />
+
+                <Spinner
+                    android:id="@+id/et_gcy"
+                    style="@style/pro_main_item_edt" />
+
+                <ImageView
+                    android:layout_width="@dimen/main_item_height"
+                    android:layout_height="@dimen/main_item_height"
+                    android:src="@drawable/observer" />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="详细内容" />
+
+                <EditText
+                    android:id="@+id/edt_bz"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:gravity="left"
+                    android:hint="对项目进行详细的描述"
+                    />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/pro_main_item_tv"
+                        android:layout_width="match_parent"
+                        android:text="添加附件" />
+
+                    <ImageView
+                        android:id="@+id/iv_file"
+                        style="@style/pro_main_item_iv"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/photo"/>
+                </LinearLayout>
+
+                <EditText
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:gravity="left" />
+            </LinearLayout>
+            <include layout="@layout/include_bottom"/>
+        </LinearLayout>
+    </ScrollView>
+<include layout="@layout/include_bottom"/>
+</LinearLayout>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_bar_height"
+        android:background="@color/gray_second"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:onClick="showMenu"
+            android:background="@drawable/menu_icon" />
+
+        <TextView
+            android:id="@+id/spinner1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="日程记事详情" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:background="@color/gray_third" />
+
+        <Button
+            android:id="@+id/btn_edit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/edit" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:background="@color/gray_third" />
+
+        <Button
+            android:id="@+id/btn_calender"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/calender" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/ll_1"
+        android:background="@color/gray_third" />
+ <RelativeLayout
+     android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/top_back"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/pic_bottom"
+            android:layout_width="@dimen/top_height"
+            android:layout_height="match_parent"
+            android:onClick="doSelectFile"
+            android:scaleType="center"
+            android:src="@drawable/pic" />
+
+        <View
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height" />
+
+        <TextView
+            android:id="@+id/iv_send"
+            android:layout_width="@dimen/top_height"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:onClick="doSend"
+            android:text="发送"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edt_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/iv_send"
+            android:layout_toRightOf="@id/pic_bottom"
+            android:gravity="left"
+            android:hint=" 跟他/她说两句" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/top_height"
+            android:background="@color/top_div" />
+    </RelativeLayout>
+    <ScrollView
+        android:id="@+id/scroll1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/view1" 
+        android:layout_above="@id/rl_bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray_second"
+                android:orientation="vertical"
+                android:padding="3dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_projectdetail_item_height"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/main_projectdetail_item_atr"
+                        android:text="标题" />
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        style="@style/main_projectdetail_item_content"
+                        android:text="2013-01-20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_projectdetail_item_height"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/main_projectdetail_item_atr"
+                        android:text="创建" />
+
+                    <TextView
+                        android:id="@+id/tv_create_time"
+                        style="@style/main_projectdetail_item_content"
+                        android:text="2013-01-20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_projectdetail_item_height"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/main_projectdetail_item_atr"
+                        android:text="提醒" />
+
+                    <TextView
+                        android:id="@+id/tv_remind_time"
+                        style="@style/main_projectdetail_item_content"
+                        android:text="2013-01-20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_projectdetail_item_height"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/main_projectdetail_item_atr"
+                        android:text="内容" />
+
+                    <TextView
+                        android:id="@+id/tv_content"
+                        style="@style/main_projectdetail_item_content"
+                        android:text="2013-01-20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/main_projectdetail_item_atr"
+                        android:gravity="right|top"
+                        android:text="附件" />
+
+                    <ImageView
+                        android:id="@+id/iv_file"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/attach" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/gray_third" />
+
+            <TextView
+                style="@style/title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="【日程记事交流】" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/gray_third" />
+
+            <ListView
+                android:id="@+id/lv_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </ListView>
+        </LinearLayout>
+    </ScrollView>
+
+   
+
+</RelativeLayout>

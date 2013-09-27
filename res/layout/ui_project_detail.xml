@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+     <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/gray_second"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:onClick="doBack"
+            android:background="@drawable/back_nav_btn" />
+
+		<TextView 
+		   android:layout_width="0dp"
+		   android:layout_height="match_parent" 
+		   android:layout_weight="1"
+		   android:gravity="left|center_vertical"
+		   android:textSize="20sp"
+		   android:text="项目详情"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:background="@color/gray_third" />
+
+        <Button
+            android:id="@+id/btn_setting"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/pro_setting_btn" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:background="@color/gray_third" />
+
+        <Button
+            android:id="@+id/btn_add_task"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/calendar_btn" />
+    </LinearLayout>
+      <View
+      android:id="@+id/view1"
+      android:layout_width="match_parent"
+      android:layout_height="2dp"
+      android:background="@color/gray_third" />
+	<LinearLayout 
+	    android:id="@+id/ll_content"
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="8"
+	    android:orientation="vertical">
+
+		<ExpandableListView
+		    android:id="@+id/el_pro_content"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent">
+		</ExpandableListView>
+		
+	</LinearLayout>
+	  <View
+      android:id="@+id/view2"
+      android:layout_width="match_parent"
+      android:layout_height="2dp"
+      android:background="@color/gray_third" />
+	<LinearLayout
+        android:id="@+id/ll_2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:background="@color/gray_second"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/edt_send"
+            android:textSize="18sp"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical|left"
+            android:background="@color/white"
+            android:hint="@string/say_hit"
+            android:padding="5dp" />
+
+        <Button
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/send" />
+    </LinearLayout>
+</LinearLayout>

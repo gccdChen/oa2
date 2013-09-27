@@ -1,0 +1,267 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/rl_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:layout_alignParentTop="true"
+        android:background="@color/top_back"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            style="@style/top_iv"
+            android:onClick="doBack"
+            android:src="@drawable/top_arr" />
+
+        <View
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height" />
+
+        <TextView
+            style="@style/top_tv"
+            android:text="处理流程" />
+
+        <Button
+            android:id="@+id/btn_sumbit"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/top_height"
+            android:layout_alignParentRight="true"
+            android:onClick="doSumbit"
+            android:text="提交" />
+
+        <View
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height"
+            android:layout_toLeftOf="@id/btn_sumbit" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ExpandableListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </ExpandableListView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/pro_main_item_tv"
+                        android:layout_height="match_parent"
+                        android:text="处理意见" />
+
+                    <EditText
+                        android:id="@+id/edt_bz"
+                        style="@style/pro_main_item_edt"
+                        android:layout_weight="5"
+                        android:gravity="left"
+                        android:hint="完成相关网页功能" />
+                </LinearLayout>
+
+                <include layout="@layout/div" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            style="@style/pro_main_item_tv"
+                            android:layout_width="match_parent"
+                            android:text="添加附件" />
+
+                        <ImageView
+                            style="@style/pro_main_item_iv"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_horizontal"
+                            android:onClick="doSelectFile"
+                            android:src="@drawable/phone" />
+                    </LinearLayout>
+
+                    <ImageView
+                        style="@style/pro_main_item_edt"
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:gravity="left" />
+                </LinearLayout>
+
+                <include layout="@layout/div" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_item_height"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/pro_main_item_tv"
+                        android:text="处理决定" />
+
+                    <RadioGroup
+                        style="@style/pro_main_item_edt"
+                        android:layout_weight="5"
+                        android:gravity="left"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/ra_pass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:checked="true"
+                            android:text="通过"
+                            android:textColor="@color/blue" />
+
+                        <RadioButton
+                            android:id="@+id/ra_reject"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="否决"
+                            android:textColor="@color/red" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <include layout="@layout/div" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/pro_main_item_tv"
+                        android:text="下一步" />
+
+                    <RadioGroup
+                        style="@style/pro_main_item_edt"
+                        android:layout_weight="5"
+                        android:gravity="left"
+                        android:orientation="vertical" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal" >
+
+                            <RadioButton
+                                android:id="@+id/ra_continue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:checked="true"
+                                android:gravity="left"
+                                android:text="继续流程" />
+
+                            <Button
+                                android:id="@+id/btn_selhb"
+                                android:layout_width="@dimen/top_height"
+                                android:layout_height="@dimen/top_height"
+                                android:layout_alignParentRight="true"
+                                android:layout_gravity="center_vertical|right"
+                                android:background="@drawable/selhb" />
+                        </RelativeLayout>
+
+                        <RadioButton
+                            android:id="@+id/ra_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="结束流程" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="【流程交流】" />
+
+            <ListView
+                android:id="@+id/lv_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </ListView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/top_height"
+                android:background="@color/top_back"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/pic_bottom"
+                    android:layout_width="@dimen/top_height"
+                    android:layout_height="match_parent"
+                    android:onClick="doSelectFile"
+                    android:scaleType="center"
+                    android:src="@drawable/pic" />
+
+                <View
+                    style="@style/top_div"
+                    android:layout_marginLeft="@dimen/top_height" />
+
+                <TextView
+                    android:id="@+id/iv_send"
+                    android:layout_width="@dimen/top_height"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:onClick="doSend"
+                    android:text="发送"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/edt_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_send"
+                    android:layout_toRightOf="@id/pic_bottom"
+                    android:gravity="left"
+                    android:hint=" 跟他/她说两句" >
+
+                    <requestFocus />
+                </EditText>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/top_height"
+                    android:background="@color/top_div" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

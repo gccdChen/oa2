@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     >
+    
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+    <TextView
+        android:text="开始日期"
+        style="@style/main_projectdetail_item_atr"
+        />
+      <TextView
+        android:text="2013-01-20"
+       style="@style/main_projectdetail_item_content"
+        />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+    <TextView
+        android:text="完成日期"
+        style="@style/main_projectdetail_item_atr"
+        />
+      <TextView
+        android:text="2013-01-20"
+       style="@style/main_projectdetail_item_content"
+        />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        style="@style/main_projectdetail_item_atr"
+        android:text="负责人" />
+
+      <TextView
+        android:text="2013-01-20"
+       style="@style/main_projectdetail_item_content"
+        />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        style="@style/main_projectdetail_item_atr"
+        android:text="项目成员" />
+
+      <TextView
+        android:text="2013-01-20"
+       style="@style/main_projectdetail_item_content"
+        />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        style="@style/main_projectdetail_item_atr"
+        android:text="项目状态" />
+
+      <TextView
+        android:text="2013-01-20"
+       style="@style/main_projectdetail_item_content"
+        />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        style="@style/main_projectdetail_item_atr"
+        android:text="详细内容" />
+
+      <TextView
+        android:text="2013-01-20"
+       style="@style/main_projectdetail_item_content"
+       android:layout_width="150dp"
+       android:layout_height="wrap_content"
+        />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="40dp" 
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        style="@style/main_projectdetail_item_atr"
+        android:text="附件"
+        android:gravity="right|top" />
+    
+
+      <ImageView
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        
+        android:src="@drawable/attach"
+        android:scaleType="fitXY"
+        />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_projectdetail_item_height" 
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        style="@style/main_projectdetail_item_atr"
+        android:text="项目小结" />
+
+      <TextView
+        android:text="2013-01-20"
+       style="@style/main_projectdetail_item_content"
+        />
+</LinearLayout>
+</LinearLayout>

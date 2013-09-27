@@ -1,0 +1,266 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:background="@color/top_back"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            style="@style/top_iv"
+            android:onClick="doBack"
+            android:src="@drawable/top_arr" />
+
+        <View
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height" />
+
+        <TextView
+            style="@style/top_tv"
+            android:text="编辑任务" />
+        
+        <Button 
+            android:id="@+id/btn_forbidden"
+           android:layout_width="@dimen/top_height"
+           android:layout_height="@dimen/top_height"
+           android:layout_alignParentRight="true"
+           android:background="@drawable/forbidden" 
+           android:onClick="doForbidden"
+           />
+        
+        <View
+            android:layout_toLeftOf="@id/btn_forbidden"
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height" />
+        
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:hint="不超过12个汉字"
+                    android:maxEms="12"
+                    android:text="任务名称" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:text="项目功能测试" />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="所属项目" />
+
+                <TextView
+                    android:id="@+id/tv_xmid"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:text="云平台菜单键设计" />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="开始日期" />
+
+                <EditText
+                    android:id="@+id/edt_jhksrq"
+                    style="@style/pro_main_item_edt" />
+
+                <ImageView
+                    android:layout_width="@dimen/main_item_height"
+                    android:layout_height="@dimen/main_item_height"
+                    android:src="@drawable/date_project" 
+                    android:onClick="showSelDate"/>
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="完成日期" />
+
+                <EditText
+                    android:id="@+id/edt_jhjsrq"
+                    style="@style/pro_main_item_edt" />
+
+                <ImageView
+                    android:layout_width="@dimen/main_item_height"
+                    android:layout_height="@dimen/main_item_height"
+                    android:src="@drawable/date_project"
+                    android:onClick="showSelDateB" />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="负责人" />
+
+                <EditText
+                    android:id="@+id/edt_zrr"
+                    style="@style/pro_main_item_edt" />
+
+                <ImageView
+                    android:layout_width="@dimen/main_item_height"
+                    android:layout_height="@dimen/main_item_height"
+                    android:src="@drawable/person"
+                    android:onClick="showSelHb" />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="任务类别" />
+
+                <Spinner
+                    android:id="@+id/spi_rwlb"
+                    style="@style/pro_main_item_edt"
+                    android:layout_width="0dp"
+                    android:layout_weight="5" />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="任务状态" />
+
+                <Spinner
+                    android:id="@+id/spi_status"
+                    style="@style/pro_main_item_edt"
+                    android:layout_width="0dp"
+                    android:entries="@array/task_status_arrays"
+                    android:layout_weight="5" />
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="详细内容" />
+
+                <EditText
+                    android:id="@+id/edt_bz"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:gravity="left"
+                    android:hint="完成相关网页功能"/>
+            </LinearLayout>
+
+            <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/pro_main_item_tv"
+                        android:layout_width="match_parent"
+                        android:text="添加附件" />
+
+                    <ImageView
+                        android:id="@+id/iv_file"
+                        style="@style/pro_main_item_iv"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:onClick="selFile"
+                        android:src="@drawable/add_btn" />
+                </LinearLayout>
+
+                <Gallery
+                    android:id="@+id/gal_file"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:gravity="left" />
+            </LinearLayout>
+            
+              <include layout="@layout/div" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="任务小结" />
+
+                <EditText
+                    android:id="@+id/et_xj"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:gravity="left"
+                    android:hint="完成相关网页功能"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+<include layout="@layout/include_bottom"/>
+</LinearLayout>

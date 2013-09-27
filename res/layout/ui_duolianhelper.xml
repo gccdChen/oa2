@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:background="@color/top_back"
+        android:gravity="center_vertical"
+        android:layout_alignParentTop="true"
+         >
+
+        <ImageView
+            style="@style/top_iv"
+            android:src="@drawable/top_bartype"
+            android:onClick="showMenu"
+            />
+
+        <View 
+           style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_tv_marleft"
+            />
+        <TextView
+            style="@style/top_tv"
+            android:text="多联小助手"
+             />
+    </RelativeLayout>
+<ListView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    ></ListView>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/top_height"
+    android:background="@color/top_back"
+    android:layout_alignParentBottom="true" >
+
+
+    <View
+        style="@style/top_div"
+        android:layout_marginLeft="@dimen/top_height" />
+   <ImageView
+        android:id="@+id/iv_send"
+        android:layout_width="@dimen/top_height"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:src="@drawable/search" />
+    <EditText
+        android:id="@+id/edt_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/iv_send"
+        android:layout_toRightOf="@id/pic_bottom"
+        android:gravity="left"
+        android:hint="输入内容文字或日期查找" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/top_height"
+        android:background="@color/top_div" />
+
+ 
+
+</RelativeLayout>
+</RelativeLayout>

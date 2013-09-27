@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+     <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_bigheight"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                  style="@style/main_item_bigtv_linear"
+                    android:orientation="vertical" >
+                    <TextView
+                        style="@style/pro_main_item_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="添加附件" />
+
+                    <ImageView
+                        android:id="@+id/iv_file"
+                        style="@style/pro_main_item_iv"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/photo"
+                        android:layout_gravity="center_horizontal"
+                        android:onClick="doSelectFile"/>
+                </LinearLayout>
+
+                <Gallery
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:gravity="left" />
+            </LinearLayout>

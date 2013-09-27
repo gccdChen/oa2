@@ -1,0 +1,108 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+ <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:background="@color/top_back"
+        android:gravity="center_vertical"
+         >
+
+        <ImageView
+            style="@style/top_iv"
+            android:onClick="doBack"
+            android:src="@drawable/top_arr"
+            />
+
+        <View 
+           style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_tv_marleft"
+            />
+        <TextView
+            style="@style/top_tv"
+            android:text="添加伙伴"
+             />
+    </RelativeLayout>
+      <View
+          style="@style/main_boder" 
+          />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="8" 
+    android:orientation="vertical"
+    >
+    <View
+       style="@style/main_boder"
+        />
+  <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="对方邮箱" />
+
+                <EditText
+                    android:id="@+id/tv_mail"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:inputType="textEmailAddress"
+                     />
+            </LinearLayout>
+              <include layout="@layout/div" />
+      <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_height"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:text="设定部门" />
+
+                <Spinner
+                    android:id="@+id/spi_department"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:background="@drawable/task_catagory"
+                     />
+            </LinearLayout>
+              <include layout="@layout/div" />
+   <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_item_bigheight"
+                android:orientation="horizontal" >
+			<LinearLayout 
+			    style="@style/main_item_bigtv_linear"
+			    >
+                <TextView
+                    style="@style/pro_main_item_tv"
+                    android:gravity="top|center_horizontal"
+                    android:paddingTop="20dp"
+                    android:text="详细内容" />
+</LinearLayout>
+                <EditText
+                    android:id="@+id/edt_bz"
+                    style="@style/pro_main_item_edt"
+                    android:layout_weight="5"
+                    android:gravity="left"
+                    android:hint="跟他/她说两句..."/>
+            </LinearLayout>
+
+      <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp" 
+        android:background="#eaeaea"
+        />
+</LinearLayout>
+<View
+        android:layout_width="match_parent"
+        android:layout_height="1dp" 
+        android:background="#000000"
+        />
+<include layout="@layout/include_bottom"/>
+</LinearLayout>

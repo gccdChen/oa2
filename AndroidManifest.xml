@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="scau.duolian.oa"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <permission
+        android:name="oem.permission.SENDMAIL"
+        android:protectionLevel="normal" >
+    </permission>
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <application
+        android:name="scau.duolian.oa.base.BaseApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="scau.duolian.oa.ui.UiLogin"
+            android:label="@string/app_name" >
+            
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiAddCalender" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiAddFlow" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiAddMilestone" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UIAddParnerCom" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiAddPartner" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UIAddProject" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiAddTask" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiCalender" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiCalenderDetail" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiEditMilestone" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiFlow" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiMessageCenter" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiMilestoneDetail" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiNoticeDetail" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiNoticeList" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiParnerCom" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiPartnerCalender" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiPartnerDetail" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiPartnerList" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiPersonSetting" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiProjectDetail" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UIProjectEdit" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiProjectTask" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiReg" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiShowHandlerFlow" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiSignin" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiTaskDetail" >
+        </activity>
+        <activity android:name="scau.duolian.oa.ui.UiTaskEdit" >
+        </activity>
+
+        <!-- service -->
+        <service android:name="scau.duolian.oa.service.InitService" >
+            <intent-filter>
+                <action android:name="scau.duolian.oa.service.INIT" />
+
+                <category android:name="android.intent.category.default" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+      <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_bar_height"
+        android:layout_alignParentTop="true"
+        android:background="@color/gray_second"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_menu"
+            android:layout_width="@dimen/header_bar_height"
+            android:layout_height="@dimen/header_bar_height"
+            android:background="@drawable/back_nav_btn"
+            android:onClick="doBack" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="left|center_vertical"
+            android:text="通知详情"
+            android:textSize="23sp" />
+    </LinearLayout>
+
+      <WebView 
+          android:id="@+id/wb_content"
+          android:layout_below="@id/ll_1"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent" />
+</RelativeLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<LinearLayout 
+	    android:id="@+id/ll_message_frame"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+
+		<TextView
+		    android:id="@+id/tv_step"
+		    android:layout_width="wrap_content"
+		    android:layout_height="match_parent"
+			android:gravity="center"	
+			android:padding="5dp"	    
+		    android:text="[1]" />
+
+	    <ImageView 
+	        android:id="@+id/iv_face"
+	        android:layout_width="80dp"
+	        android:layout_height="80dp"
+	        android:scaleType="fitXY"
+	       android:src="@drawable/face_test" />
+	    	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical">
+	    <TextView 
+	        android:id="@+id/tv_name"
+	        android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	        android:text="也无晴"/>
+	    <TextView 
+	        android:id="@+id/tv_content"
+	        android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	        android:text="外币拿数据的那款近三年尽快那少空间电脑卡加深对"/>
+	    <TextView 
+	        android:id="@+id/tv_time"
+	        android:gravity="right|center_vertical"
+	        android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	        android:text="2013-09-02 16:46:27 [通过]"/>
+	</LinearLayout>
+
+	</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <solid android:color="#1AB180" />
+    <stroke android:width="@dimen/ui_login_edt_stroke_width" android:color="@color/login_btn_stroke" />
+	<corners android:radius="8dp" />
+</shape>

@@ -1,0 +1,154 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+         <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="main_tab_bottom">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <!-- textstyle -->
+    
+    <style name="pro_detail_label">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/gray_third</item>
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:layout_marginRight">10dip</item>
+    </style>
+    <style name="pro_detail_title">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    
+    <style name="top_iv">
+        <item name="android:layout_width">@dimen/top_height</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:background">@color/top_back</item>
+    </style>
+
+    <style name="top_tv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/top_tv_marleft</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+
+    <style name="top_div">
+        <item name="android:background">@color/top_div</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">1px</item>
+    </style>
+    <!-- main -->
+    <style name="main_boder">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">#000000</item>
+    </style>
+
+    <string name="main_div"><item name="android:layout_width">match_parent</item><item name="android:layout_height">1dp</item><item name="android:background">#eaeaea</item></string>
+
+    <!-- person setting main -->
+    <style name="per_set_main_edt">
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/main_textcolor</item>
+        <item name="android:layout_marginLeft">@dimen/edit_tv_margin</item>
+    </style>
+    <!-- new project main -->
+    <style name="pro_main_item_tv">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/main_back</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+	<style name="main_item_bigtv_linear">
+	     <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:layout_height">@dimen/main_item_bigheight</item>
+        <item name="android:background">@color/main_back</item>
+	</style>
+    <style name="pro_main_item_edt">
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">4</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/main_textcolor</item>
+    </style>
+
+    <style name="pro_main_item_iv">
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/main_textcolor</item>
+    </style>
+    
+    <!-- main project detail item -->
+    <style name="main_projectdetail_item_atr">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/main_textcolor</item>
+        <item name="android:layout_marginLeft">30dp</item>
+    </style>
+        <style name="main_projectdetail_item_content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+    <!-- calender -->
+    <style name="title_bar">
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/gray_second</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <!-- menu style -->
+    <style name="widget_menu_item">
+        <item name="android:background">@drawable/menu_item_selector</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:paddingLeft">80dp</item>
+    </style>
+</resources>

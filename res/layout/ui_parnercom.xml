@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+ <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_height"
+        android:background="@color/top_back"
+        android:gravity="center_vertical"
+         >
+
+        <ImageView
+            style="@style/top_iv"
+            android:src="@drawable/top_arr"
+            android:onClick="doBack"
+            />
+
+        <View 
+           style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height"
+            />
+        <TextView
+            style="@style/top_tv"
+            android:text="对话交流"
+             />
+        
+           <View 
+            style="@style/top_div"
+            android:layout_marginRight="@dimen/top_height"
+            android:layout_alignParentRight="true"
+            />
+		<ImageView 
+		    style="@style/top_iv"
+		    android:src="@drawable/search"
+		    android:layout_alignParentRight="true"
+		    />
+    </RelativeLayout>
+    <View
+       style="@style/main_boder" 
+       />
+<ListView
+    android:id="@+id/lv_parnermessage"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="8"
+    ></ListView>
+   <View
+       style="@style/main_boder" 
+       />
+  <include
+      layout="@layout/include_bottom_sendmsg" 
+      />
+
+</LinearLayout>
