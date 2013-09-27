@@ -388,4 +388,15 @@ public class SDUtil {
 			}
 		}
 	}
+	/**
+	 * 判断sd卡是否健在
+	 * @return
+	 */
+	public static boolean existSDCard() {
+		if (android.os.Environment.getExternalStorageState().equals(
+				android.os.Environment.MEDIA_MOUNTED)) {
+			return true;
+		} else
+			return false;
+	}
 }

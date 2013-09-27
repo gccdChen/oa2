@@ -26,6 +26,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.http.AndroidHttpClient;
 import android.util.Log;
+import android.widget.Toast;
 
 public class ImgDownload extends Thread{
 	private static String TAG = "ImgDownload";
@@ -58,8 +59,8 @@ public class ImgDownload extends Thread{
 		InputStream inputStream = null;
 		HttpGet httpGet = null;
 		try {
-Log.i("loadImageFromInternet", "url:"+url);
-			httpGet = new HttpGet(new String(url));
+Log.i("loadImageFromInternet", "url:"+url.length());
+			httpGet = new HttpGet(url);
 			response = client.execute(httpGet);
 			int stateCode = response.getStatusLine().getStatusCode();
 			if (stateCode != HttpStatus.SC_OK) {
@@ -70,8 +71,11 @@ Log.i("loadImageFromInternet", "url:"+url);
 			if (entity != null) {
 				try {
 					inputStream = entity.getContent();
-					String path  = dir+"/"+getNameFromUrl(url);
-					FileOutputStream outputStream = new FileOutputStream(new File(path));
+					String path  = dir+getNameFromUrl(url);
+					File file = new File(path);
+					if(!file.getParentFile().exists())
+						file.getParentFile().mkdirs();
+					FileOutputStream outputStream = new FileOutputStream(file);
 					write(inputStream, outputStream);
 					return path;
 				} finally {

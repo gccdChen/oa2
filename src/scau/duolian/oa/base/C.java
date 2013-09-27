@@ -5,7 +5,9 @@ import android.os.Environment;
 public class C {
 	/////// 目录
 	public static final class dir{
-		public static final String base				= Environment.getExternalStorageDirectory().getPath()+"/oa";
+		public static final String base				= "/sdcard/oa";
+//		public static final String base				= Environment.getExternalStorageDirectory().getPath()+"/oa";
+//		public static final String base				= Environment.getDataDirectory().getPath()+"/oa";
 		public static final String temp 				= base + "/temp";
 	}
 	/////// api

@@ -316,7 +316,7 @@ Log.i("loadImageFromInternet", "url:"+url);
 		List<String> picUrls = new ArrayList<String>();
 		Matcher m = p.matcher(src.replaceAll("\\\\/", "/"));
 		while(m.find()){
-			picUrls.add(new String(m.group()));
+			picUrls.add(new String(m.group(1)));
 		}
 		return picUrls;	
 	}
