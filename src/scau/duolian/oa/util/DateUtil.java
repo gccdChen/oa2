@@ -40,14 +40,12 @@ public class DateUtil {
 			return null;
 		}
 	}
-	
+
 	public static String strTostr(String str) {
 		if (null == str || "".equals(str))
 			return null;
 		return sdf.format(new Date(Long.parseLong(str)));
 	}
-	
-	
 
 	public static Date strToTime(String time) {
 		if (null == time || "".equals(time))
@@ -68,81 +66,108 @@ public class DateUtil {
 	public static String dateToStr(Date date) {
 		return sdf.format(date);
 	}
-	private static final int MinuteUnit =  60 ;
-	private static final int HourUnit =  60 * 60;
-	private static final int DayUnit =  60 * 60 * 24;
-	private static final DecimalFormat decimalFormat =new DecimalFormat("00");
+
+	private static final int MinuteUnit = 60;
+	private static final int HourUnit = 60 * 60;
+	private static final int DayUnit = 60 * 60 * 24;
+	private static final DecimalFormat decimalFormat = new DecimalFormat("00");
+
 	/**
 	 * 
-	 * @param time 秒级的long
-	 * @return "yyyyMMdd" 如果一小时之内则输出 XX分钟前 一天之内 则输出 今天 hh:MM 
+	 * @param time
+	 *            秒级的long
+	 * @return "yyyyMMdd" 如果一小时之内则输出 XX分钟前 一天之内 则输出 今天 hh:MM
 	 */
-	public static String longToStr(Long time){
+	public static String longToStr(Long time) {
 		Date date = new Date();
-		long now = date.getTime()/ 1000;
-		Long nowHour = now / HourUnit *HourUnit;
-		Long nowDay = now / DayUnit *DayUnit;
-		if(time > nowHour){
-			return (now - time) / MinuteUnit+"分钟前";
-		}else if(time > nowDay){
-			return "今天 "+decimalFormat.format( ( time%DayUnit /HourUnit ) )+":" + decimalFormat.format( (time % HourUnit /MinuteUnit) );
-		}else{
-			return sdf3.format(new Date(time*1000));
+		long now = date.getTime() / 1000;
+		Long nowHour = now / HourUnit * HourUnit;
+		Long nowDay = now / DayUnit * DayUnit;
+		if (time > nowHour) {
+			return (now - time) / MinuteUnit + "分钟前";
+		} else if (time > nowDay) {
+			return "今天 " + decimalFormat.format((time % DayUnit / HourUnit)) + ":" + decimalFormat.format((time % HourUnit / MinuteUnit));
+		} else {
+			return sdf3.format(new Date(time * 1000));
 		}
 	}
+
 	/**
 	 * 
-	 * @param time ms级的long
-	 * @return  
+	 * @param time
+	 *            ms级的long
+	 * @return
 	 */
-	public static String longStrToStr(String time){
-		if(time==null || time.length()<=3)
+	public static String longStrToStr(String time) {
+		if (time == null || time.length() <= 3)
 			return "2013-09-04 02:28";
-		Long t =null;
-		try{
+		Long t = null;
+		try {
 			t = Long.parseLong(time);
 			return sdf5.format(new Date(t));
-		}catch(Exception e){
+		} catch (Exception e) {
 			return "2013-09-04 02:28";
 		}
 	}
+
 	/**
 	 * 
-	 * @param time 秒级的long
-	 * @return "yyyyMMdd" 如果一小时之内则输出 XX分钟前 一天之内 则输出 今天 hh:MM 
+	 * @param time
+	 *            ms级的long
+	 * @return
 	 */
-	public static String intToStr(Integer time){
-		Date date = new Date();
-		long now = date.getTime()/ 1000;
-		Long nowHour = now / HourUnit *HourUnit;
-		Long nowDay = now / DayUnit *DayUnit;
-		if(time > nowHour){
-			return (now - time) / MinuteUnit+"分钟前";
-		}else if(time > nowDay){
-			return "今天 "+decimalFormat.format( ( time%DayUnit /HourUnit ) )+":" + decimalFormat.format( (time % HourUnit /MinuteUnit) );
-		}else{
-			return sdf3.format(new Date(time*1000));
+	public static Date longStrToDate(String time) {
+		if (time == null || time.length() <= 3)
+			return new Date();
+		Long t = null;
+		try {
+			t = Long.parseLong(time);
+			return new Date(t);
+		} catch (Exception e) {
+			return new Date();
 		}
 	}
+
 	/**
 	 * 
-	 * @param time 秒级的long
+	 * @param time
+	 *            秒级的long
+	 * @return "yyyyMMdd" 如果一小时之内则输出 XX分钟前 一天之内 则输出 今天 hh:MM
+	 */
+	public static String intToStr(Integer time) {
+		Date date = new Date();
+		long now = date.getTime() / 1000;
+		Long nowHour = now / HourUnit * HourUnit;
+		Long nowDay = now / DayUnit * DayUnit;
+		if (time > nowHour) {
+			return (now - time) / MinuteUnit + "分钟前";
+		} else if (time > nowDay) {
+			return "今天 " + decimalFormat.format((time % DayUnit / HourUnit)) + ":" + decimalFormat.format((time % HourUnit / MinuteUnit));
+		} else {
+			return sdf3.format(new Date(time * 1000));
+		}
+	}
+
+	/**
+	 * 
+	 * @param time
+	 *            秒级的long
 	 * @return "yyyyMMdd" 如果一小时之内则输出 XX分钟前 一天之内 则输出 今天 hh:MM 否则是 XX月XX
 	 */
-	public static String intToStr2(Integer time){
+	public static String intToStr2(Integer time) {
 		Date date = new Date();
-		long now = date.getTime()/ 1000;
-		Long nowHour = now / HourUnit *HourUnit;
-		Long nowDay = now / DayUnit *DayUnit;
-		if(time > nowHour){
-			return (now - time) / MinuteUnit+"分钟前";
-		}else if(time > nowDay){
-			return ""+decimalFormat.format( ( time%DayUnit /HourUnit ) )+":" + decimalFormat.format( (time % HourUnit /MinuteUnit) );
-		}else{
-			return sdf4.format(new Date(time*1000));
+		long now = date.getTime() / 1000;
+		Long nowHour = now / HourUnit * HourUnit;
+		Long nowDay = now / DayUnit * DayUnit;
+		if (time > nowHour) {
+			return (now - time) / MinuteUnit + "分钟前";
+		} else if (time > nowDay) {
+			return "" + decimalFormat.format((time % DayUnit / HourUnit)) + ":" + decimalFormat.format((time % HourUnit / MinuteUnit));
+		} else {
+			return sdf4.format(new Date(time * 1000));
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @param date
@@ -160,6 +185,7 @@ public class DateUtil {
 		Long t = new Date().getTime() / 1000;
 		return Integer.parseInt("" + t);
 	}
+
 	public static String getDateStr() {
 		return sdf5.format(new Date());
 	}

@@ -59,7 +59,7 @@
                     android:maxEms="12"
                     android:text="项目名称" />
 
-                <TextView
+                <EditText
                     android:id="@+id/edt_title"
                     style="@style/pro_main_item_edt"
                     android:layout_weight="5"

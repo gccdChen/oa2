@@ -24,7 +24,7 @@
             android:scaleType="fitXY"
             android:background="@drawable/go_arrow"/>
         <TextView 
-            android:layout_marginLeft="10dp"
+            android:paddingLeft="10dp"
             android:id="@+id/tv_title" 
             android:layout_width="match_parent"
             android:layout_height="match_parent"

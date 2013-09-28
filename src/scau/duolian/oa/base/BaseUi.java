@@ -9,14 +9,12 @@ import net.tsz.afinal.http.AjaxCallBack;
 import net.tsz.afinal.http.AjaxParams;
 import scau.duolian.oa.R;
 import scau.duolian.oa.util.AppUtil;
-import scau.duolian.oa.util.DeviceHelper;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,12 +23,10 @@ import android.os.Message;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.widget.Toast;
 
-public class BaseUi extends Activity implements OnTouchListener{
+public class BaseUi extends Activity {
 	private List<Activity> activities = new ArrayList<Activity>();
 	public static FinalHttp fhttp;
 
@@ -53,17 +49,18 @@ public class BaseUi extends Activity implements OnTouchListener{
 			fhttp = new FinalHttp();
 	}
 
-	protected boolean showingMenu = false ;
+	protected boolean showingMenu = false;
 	protected View menu = null;
+
 	public void showMenu(View view) {
 		// TODO Auto-generated method stub
-		if(showingMenu)
+		if (showingMenu)
 			menu.setVisibility(View.GONE);
 		else
 			menu.setVisibility(View.VISIBLE);
 		showingMenu = !showingMenu;
 	}
-	
+
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
@@ -91,7 +88,7 @@ public class BaseUi extends Activity implements OnTouchListener{
 		super.onPause();
 		// debug memory
 		debugMemory("onPause");
-		if(menu!=null){
+		if (menu != null) {
 			showingMenu = false;
 			menu.setVisibility(View.GONE);
 		}
@@ -165,14 +162,14 @@ public class BaseUi extends Activity implements OnTouchListener{
 		this.startActivity(intent);
 		this.finish();
 	}
-	
-	//// logic 
 
-	protected boolean isLogin(){
-		return ((BaseApp)getApplication()).isLogin();
+	// // logic
+
+	protected boolean isLogin() {
+		return ((BaseApp) getApplication()).isLogin();
 	}
-	
-	protected String getMac(){
+
+	protected String getMac() {
 //		SharedPreferences preferences = getPreferences(0);
 //		String mac = null;
 //		if(!preferences.contains(C.config.mac)){
@@ -181,9 +178,9 @@ public class BaseUi extends Activity implements OnTouchListener{
 //		}else
 //			mac = preferences.getString(C.config.mac, "");
 //		return mac;
-		return "00:16:6D:C0:1D:5D";//test
+		return "00:16:6D:C0:1D:5D";// test
 	}
-	
+
 	public Context getContext() {
 		return this;
 	}
@@ -208,40 +205,41 @@ public class BaseUi extends Activity implements OnTouchListener{
 		return getLayout(layoutId).findViewById(itemId);
 	}
 
-	/////network
-	public void get(String url,AjaxCallBack callBack){
+	// ///network
+	public void get(String url, AjaxCallBack callBack) {
 		AjaxParams params = new AjaxParams();
 		params.put("c", "sync");
-		fhttp.get(url, params,callBack);
+		fhttp.get(url, params, callBack);
 	}
-	
-	public void get(String url,AjaxParams params,AjaxCallBack callBack){
+
+	public void get(String url, AjaxParams params, AjaxCallBack callBack) {
 		url = getUrl(url);
 		params.put("c", "sync");
 		Log.i("params", params.toString());
-		fhttp.get(url,params, callBack);
+		fhttp.get(url, params, callBack);
 	}
-	
-	public void post(String url,AjaxParams params,AjaxCallBack callBack){
+
+	public void post(String url, AjaxParams params, AjaxCallBack callBack) {
 		url = getUrl(url);
 		Log.i("params", params.toString());
 		params.put("c", "sync");
-		fhttp.post(url,params, callBack);
+		fhttp.post(url, params, callBack);
 	}
-	public void post(String url,AjaxParams params,String contentType,AjaxCallBack callBack){
+
+	public void post(String url, AjaxParams params, String contentType, AjaxCallBack callBack) {
 		url = getUrl(url);
 		Log.i("params", params.toString());
 		params.put("c", "sync");
-		fhttp.post(url,null,params,contentType, callBack);
+		fhttp.post(url, null, params, contentType, callBack);
 	}
-	
+
 	private String getUrl(String url) {
 		// TODO Auto-generated method stub
 		String u = null;
-		if(url.startsWith("http:"))
+		if (url.startsWith("http:"))
 			u = url;
 		else
-			u = C.api.BASE+url;
+			u = C.api.BASE + url;
 		Log.i("url", u);
 		return u;
 	}
@@ -355,24 +353,28 @@ public class BaseUi extends Activity implements OnTouchListener{
 							}
 						}).show();
 	}
+
 	public static final int SELECT_FILE_CODE = 500;
+
 	public Intent openFileChooser() {
 		Intent i = new Intent(Intent.ACTION_GET_CONTENT);
 		i.addCategory(Intent.CATEGORY_OPENABLE);
 		i.setType("*/*");
 
-		Intent chooser = createChooserIntent(createCameraIntent(),createCamcorderIntent(), createSoundRecorderIntent());
+		Intent chooser = createChooserIntent(createCameraIntent(), createCamcorderIntent(), createSoundRecorderIntent());
 		chooser.putExtra(Intent.EXTRA_INTENT, i);
 		return chooser;
-    }
-	
+	}
+
 	private Intent createChooserIntent(Intent... intents) {
 		Intent chooser = new Intent(Intent.ACTION_CHOOSER);
 		chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents);
 		chooser.putExtra(Intent.EXTRA_TITLE, getString(R.string.choose_upload));
 		return chooser;
 	}
+
 	private String mCameraFilePath;
+
 	private Intent createCameraIntent() {
 		Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		File externalDataDir = Environment
@@ -394,15 +396,5 @@ public class BaseUi extends Activity implements OnTouchListener{
 	private Intent createSoundRecorderIntent() {
 		return new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
 	}
-
-	@Override
-	public boolean onTouch(View v, MotionEvent event) {
-		// TODO Auto-generated method stub
-		if(menu != null && menu.VISIBLE == View.VISIBLE){
-			menu.setVisibility(View.GONE);
-		}
-		return true;
-	}
-
 
 }

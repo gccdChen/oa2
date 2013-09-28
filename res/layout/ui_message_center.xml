@@ -59,7 +59,7 @@
       android:layout_height="2dp"
       android:background="@color/gray_third" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/ll_2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/footer_bar_height"
@@ -72,8 +72,8 @@
         <EditText
             android:id="@+id/edt_search"
             android:textSize="18sp"
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="5dp"
@@ -85,11 +85,12 @@
             />
 
         <Button
+            android:layout_alignParentRight="true"
             android:id="@+id/btn_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/top_height"
+            android:layout_height="@dimen/top_height"
             android:layout_margin="5dp"
             android:onClick="doSearch"
             android:background="@drawable/btn_send" />
-    </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>
