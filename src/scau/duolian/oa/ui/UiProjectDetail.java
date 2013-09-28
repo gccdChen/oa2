@@ -202,7 +202,5 @@ public class UiProjectDetail extends BaseUiAuth {
 	
 	public void addToCalender(View view) {
 		// TODO Auto-generated method stub
-		DeviceHelper.
-		wdxm.bz
 	}
 }
