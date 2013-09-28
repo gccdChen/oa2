@@ -184,6 +184,21 @@ public class ImageLoader {
 			iv.setImageBitmap(bitmap);//设为缓存图片
 		}
 	}
+	
+	/**
+	 * 加载图片，如果缓存中有就直接从缓存中拿，缓存中没有就下载
+	 * @param url
+	 * @param holder
+	 * @param cache 
+	 */
+	public void loadImage(String url, ImageView iv,boolean cache) {
+		if(cache){
+			loadImage(url,iv);
+			return ;
+		}
+		ImageLoadTask2 imageLoadTask = new ImageLoadTask2();
+		imageLoadTask.execute(url, iv);
+	}
 
 	/**
 	 * 放入缓存

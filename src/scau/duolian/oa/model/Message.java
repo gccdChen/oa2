@@ -1,6 +1,7 @@
 package scau.duolian.oa.model;
 import net.tsz.afinal.annotation.sqlite.Id;
 import scau.duolian.oa.base.BaseModel;
+import scau.duolian.oa.util.DateUtil;
 public class Message extends BaseModel{
 		@Id
 		public String id;
@@ -12,7 +13,9 @@ public class Message extends BaseModel{
 		public String dt;
 		
 		public boolean isreaded = false;
-		
+		public Message() {
+			// TODO Auto-generated constructor stub
+		}
 		
 		public String getId() {
 			return id;
@@ -67,6 +70,8 @@ public class Message extends BaseModel{
 			if(title !=null && title.contains(keyword))
 				return true;
 			if(subtitle !=null && subtitle.contains(keyword))
+				return true;
+			if(DateUtil.longStrToStr(dt).contains(keyword))
 				return true;
 			return false;
 		}

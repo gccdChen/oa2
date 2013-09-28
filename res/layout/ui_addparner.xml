@@ -17,10 +17,10 @@
             android:src="@drawable/top_arr"
             />
 
-        <View 
-           style="@style/top_div"
-            android:layout_marginLeft="@dimen/top_tv_marleft"
-            />
+          <View
+            android:id="@+id/view1"
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height" />
         <TextView
             style="@style/top_tv"
             android:text="添加伙伴"

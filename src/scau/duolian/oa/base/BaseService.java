@@ -18,7 +18,7 @@ public class BaseService extends Service{
 	}
 
 	protected String getMac(){
-		/*SharedPreferences preferences = getPreferences(0);
+		/*SharedPreferences preferences = getSharedPreferences(C.config.name, 0);
 		String mac = preferences.getString(C.config.mac, "");
 		if(StringUtil.isBlank(mac)){
 			mac = DeviceHelper.getMac(this);

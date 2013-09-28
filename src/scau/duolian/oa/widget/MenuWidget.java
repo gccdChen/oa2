@@ -5,6 +5,7 @@ import scau.duolian.oa.base.BaseUi;
 import scau.duolian.oa.ui.UiCalender;
 import scau.duolian.oa.ui.UiMessageCenter;
 import scau.duolian.oa.ui.UiNoticeDetail;
+import scau.duolian.oa.ui.UiNoticeList;
 import scau.duolian.oa.ui.UiPartnerList;
 import scau.duolian.oa.ui.UiFlow;
 import scau.duolian.oa.ui.UiProjectTask;
@@ -66,7 +67,7 @@ public class MenuWidget extends LinearLayout{
 				context.forward(UiFlow.class);
 				break;
 			case R.id.btn_to_notice:
-				context.forward(UiNoticeDetail.class);
+				context.forward(UiNoticeList.class);
 				break;
 			case R.id.btn_to_backup:
 				context.forward(UiCalender.class);

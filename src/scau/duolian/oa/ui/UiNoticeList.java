@@ -57,12 +57,11 @@ public class UiNoticeList extends BaseUiAuth{
 		db = FinalDb.create(this);
 		refresh();
 	}
-	View menu = null;
 	private void initCon() {
 		// TODO Auto-generated method stub
 		lv_messsages = (ListView) findViewById(R.id.lv_messsages);
 		edt_search = (EditText) findViewById(R.id.edt_search);
-		menu = findViewById(R.id.menu);
+		super.menu = findViewById(R.id.menu);
 		adapter = new MessageAdapter(this, messages,db);
 		lv_messsages.setAdapter(adapter);
 	}
@@ -70,8 +69,6 @@ public class UiNoticeList extends BaseUiAuth{
 	private static void refresh(){
 		messages = db.findAllByWhere(Message.class, "mtype = '1'", "dt");
 		adapter.messages = messages;
-		adapter.keyword = keyword;
-		adapter.filter = filter;
 		adapter.notifyDataSetChanged();
 	}
 	
@@ -81,14 +78,5 @@ public class UiNoticeList extends BaseUiAuth{
 		keyword = edt_search.getText().toString();
 		filter = true;
 		refresh();
-	}
-	private boolean showingMenu = false ;
-	public void showMenu(View view) {
-		// TODO Auto-generated method stub
-		if(showingMenu)
-			menu.setVisibility(View.GONE);
-		else
-			menu.setVisibility(View.VISIBLE);
-		showingMenu = !showingMenu;
 	}
 }

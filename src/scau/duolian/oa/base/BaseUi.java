@@ -1,6 +1,7 @@
 package scau.duolian.oa.base;
 
 import java.io.File;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -170,14 +171,14 @@ public class BaseUi extends Activity {
 	}
 
 	protected String getMac() {
-//		SharedPreferences preferences = getPreferences(0);
-//		String mac = null;
-//		if(!preferences.contains(C.config.mac)){
-//			mac = DeviceHelper.getMac(this);
-//			preferences.edit().putString(C.config.mac, mac).commit();
-//		}else
-//			mac = preferences.getString(C.config.mac, "");
-//		return mac;
+		// SharedPreferences preferences = getSharedPreferences(C.config.name, 0);
+		// String mac = null;
+		// if(!preferences.contains(C.config.mac)){
+		// mac = DeviceHelper.getMac(this);
+		// preferences.edit().putString(C.config.mac, mac).commit();
+		// }else
+		// mac = preferences.getString(C.config.mac, "");
+		// return mac;
 		return "00:16:6D:C0:1D:5D";// test
 	}
 
@@ -225,8 +226,13 @@ public class BaseUi extends Activity {
 		params.put("c", "sync");
 		fhttp.post(url, params, callBack);
 	}
+	public void postSep(String url, AjaxParams params, AjaxCallBack callBack) {
+		Log.i("params", params.toString());
+		params.put("c", "sync");
+		fhttp.post(url, params, callBack);
+	}
 
-	public void post(String url, AjaxParams params, String contentType, AjaxCallBack callBack) {
+	public void post(String url, AjaxParams params, String contentType,AjaxCallBack callBack) {
 		url = getUrl(url);
 		Log.i("params", params.toString());
 		params.put("c", "sync");
@@ -361,7 +367,8 @@ public class BaseUi extends Activity {
 		i.addCategory(Intent.CATEGORY_OPENABLE);
 		i.setType("*/*");
 
-		Intent chooser = createChooserIntent(createCameraIntent(), createCamcorderIntent(), createSoundRecorderIntent());
+		Intent chooser = createChooserIntent(createCameraIntent(),
+				createCamcorderIntent(), createSoundRecorderIntent());
 		chooser.putExtra(Intent.EXTRA_INTENT, i);
 		return chooser;
 	}
@@ -382,8 +389,8 @@ public class BaseUi extends Activity {
 		File cameraDataDir = new File(externalDataDir.getAbsolutePath()
 				+ File.separator + "browser-photos");
 		cameraDataDir.mkdirs();
-		mCameraFilePath = cameraDataDir.getAbsolutePath()
-				+ File.separator + System.currentTimeMillis() + ".jpg";
+		mCameraFilePath = cameraDataDir.getAbsolutePath() + File.separator
+				+ System.currentTimeMillis() + ".jpg";
 		cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,
 				Uri.fromFile(new File(mCameraFilePath)));
 		return cameraIntent;
@@ -397,4 +404,12 @@ public class BaseUi extends Activity {
 		return new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
 	}
 
+	// util
+	public final static String escape(String str) {
+		try {
+			return URLEncoder.encode(str, "UTF-8");
+		} catch (Exception e) {
+		}
+		return null;
+	}
 }

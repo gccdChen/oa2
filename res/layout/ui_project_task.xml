@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/gray_third" />
-
+	 
     <TabHost
         android:id="@+id/tabhost"
         android:layout_below="@id/view1"
@@ -72,17 +72,16 @@
                 android:layout_width="fill_parent"
                 android:layout_height="0.0dip"
                 android:layout_weight="1" >
-                <ListView 
-            	    android:id="@+id/lv_task_list"
-            	    android:background="@color/blue"
-            	    android:layout_width="match_parent"
-            	    android:layout_height="match_parent">
-            	</ListView>
             	<ExpandableListView 
             	    android:id="@+id/el_pro_task_list"
             	    android:layout_width="match_parent"
             	    android:layout_height="match_parent">
             	</ExpandableListView>
+            	 <ListView 
+            	    android:id="@+id/lv_task_list"
+            	    android:layout_width="match_parent"
+            	    android:layout_height="match_parent">
+            	</ListView>
 			</FrameLayout>
             <TabWidget
                 android:id="@android:id/tabs"
@@ -125,4 +124,12 @@
         </LinearLayout>
     </TabHost>
 
+    <scau.duolian.oa.widget.MenuWidget
+	      android:id="@+id/menu"
+	      android:layout_below="@id/view1"
+	      android:layout_marginLeft="20dp"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content" 
+	      android:visibility="gone">
+	  </scau.duolian.oa.widget.MenuWidget>
 </RelativeLayout>

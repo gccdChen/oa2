@@ -14,10 +14,13 @@ public class BaseUiAuth extends BaseUi {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		if (!isLogin()) {
-			SharedPreferences preferences = getPreferences(0);
+			SharedPreferences preferences = getSharedPreferences(C.config.name, 0);
 			if(preferences.contains(C.config.user)){
 				String result = preferences.getString(C.config.user, "");
 				setUser(JsonUtil.json2user(result));
+				if(preferences.contains(C.config.isadmin)){
+					getUser().isadmin = preferences.getBoolean(C.config.isadmin, false);
+				}
 			}else
 				forward(UiLogin.class);
 		}

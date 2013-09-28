@@ -31,6 +31,7 @@ public class UiCalender extends BaseUiAuth{
 	private void initCon() {
 		// TODO Auto-generated method stub
 		expandableListView = (ExpandableListView) findViewById(R.id.content);
+		super.menu = findViewById(R.id.menu);
 	}
 	List<CalenderNote> calenderNotes = null;
 	private void initdata() {

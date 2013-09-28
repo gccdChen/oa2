@@ -37,7 +37,7 @@ public class UiLogin extends BaseUi {
 		edt_account = (EditText) findViewById(R.id.edt_account);
 		edt_password = (EditText) findViewById(R.id.edt_password);
 		cb_remember_me = (CheckBox) findViewById(id.cb_remember_me);
-		preferences = getPreferences(0);
+		preferences = getSharedPreferences(C.config.name, 0);
 		
 		if(preferences.contains(C.config.uid)){
 			String s_user = preferences.getString(C.config.user, "1");

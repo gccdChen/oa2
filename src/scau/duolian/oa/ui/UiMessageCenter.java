@@ -8,6 +8,7 @@ import scau.duolian.oa.R;
 import scau.duolian.oa.adapter.MessageAdapter;
 import scau.duolian.oa.base.BaseUiAuth;
 import scau.duolian.oa.model.Message;
+import scau.duolian.oa.util.StringUtil;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 
 public class UiMessageCenter extends BaseUiAuth {
 	private static List<Message> messages = new ArrayList<Message>();
+	private static List<Message> selMessages = new ArrayList<Message>();
 	private static String keyword = null;
 	/**
 	 * 搜索是否开启
@@ -46,6 +48,7 @@ public class UiMessageCenter extends BaseUiAuth {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_message_center);
+		db = FinalDb.create(this);
 		initCon();
 		initData();
 	}
@@ -53,7 +56,7 @@ public class UiMessageCenter extends BaseUiAuth {
 	static FinalDb db = null;
 	
 	private void initData() {
-		db = FinalDb.create(this);
+		
 		refresh();
 	}
 	
@@ -69,8 +72,6 @@ public class UiMessageCenter extends BaseUiAuth {
 	private static void refresh(){
 		messages = db.findAll(Message.class, "dt");
 		adapter.messages = messages;
-		adapter.keyword = keyword;
-		adapter.filter = filter;
 		adapter.notifyDataSetChanged();
 	}
 	
@@ -78,8 +79,18 @@ public class UiMessageCenter extends BaseUiAuth {
 	public void doSearch(View view) {
 		// TODO Auto-generated method stub
 		keyword = edt_search.getText().toString();
-		filter = true;
-		refresh();
+		selMessages.clear();
+		if(!StringUtil.isBlank(keyword)){
+			for(int i =0 ;i<messages.size();i++){
+				Message m = messages.get(i);
+				if(m.find(keyword))
+					selMessages.add(m);
+			}
+			adapter.messages  = selMessages;
+		}else{
+			adapter.messages = messages;
+		}
+		adapter.notifyDataSetChanged();
 	}
 	
 }

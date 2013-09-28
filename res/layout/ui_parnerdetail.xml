@@ -4,44 +4,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <RelativeLayout
+   <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_height"
         android:background="@color/top_back"
-        android:gravity="center_vertical"
-         >
+        android:gravity="center_vertical" >
 
-        <Button
+        <ImageView
             style="@style/top_iv"
-            android:background="@drawable/top_arr"
-            android:onClick="doBack"/>
+            android:onClick="doBack"
+            android:src="@drawable/top_arr" />
+ 		<Button 
+            android:id="@+id/btn_forbidden"
+            android:layout_width="@dimen/top_height"
+            android:layout_height="@dimen/top_height"
+            android:layout_alignParentRight="true"
+            android:onClick="doForbidden"
+            android:background="@drawable/forbidden"/>
+        <View
+            android:id="@+id/view1"
+            style="@style/top_div"
+            android:layout_marginLeft="@dimen/top_height" />
 
-        <View 
-           style="@style/top_div"
-            android:layout_marginLeft="75dp"
-            />
         <TextView
             style="@style/top_tv"
-            android:text="伙伴详情"
-             />
-           <View 
+            android:text="伙伴详情" />
+        <View
+            android:id="@+id/view2"
+            android:layout_toLeftOf="@id/btn_forbidden"
             style="@style/top_div"
-            android:layout_marginRight="75dp"
-            android:layout_alignParentRight="true"
-            />
-		<ImageView 
-		    style="@style/top_iv"
-		    android:src="@drawable/top_right"
-		    android:layout_alignParentRight="true"
-		    android:onClick="edit"
-		    />
-		<ImageView 
-		    style="@style/top_iv"
-		    android:src="@drawable/forbidden"
-		    android:scaleType="fitXY"
-		    android:layout_alignParentRight="true"
-		    android:onClick="forbidden"
-		    />
+            android:layout_marginLeft="@dimen/top_height" />
+       
     </RelativeLayout>
       <View
           android:layout_width="match_parent"
@@ -71,7 +64,6 @@
             android:layout_height="50dp"
             android:layout_marginBottom="15dp"
             android:layout_marginTop="15dp"
-            android:background="#ff0000"
             android:scaleType="center" />
 
         <LinearLayout

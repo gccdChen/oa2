@@ -20,6 +20,7 @@ import scau.duolian.oa.base.BaseUiAuth;
 import scau.duolian.oa.base.C;
 import scau.duolian.oa.base.MyCallBack;
 import scau.duolian.oa.model.Wddh;
+import scau.duolian.oa.model.Wdhb;
 import scau.duolian.oa.model.Wdrc;
 import scau.duolian.oa.util.DateUtil;
 import scau.duolian.oa.util.JsonUtil;
@@ -55,10 +56,10 @@ public class UiCalenderDetail extends BaseUiAuth{
 	private void init() {
 		// TODO Auto-generated method stub
 		Intent intent = getIntent();
-		id = intent.getStringExtra("hbid");
-		hbid = intent.getStringExtra("id");
-		
+		id = intent.getStringExtra("id");
 		wdrc = db.findById(id, Wdrc.class);
+		if(intent.hasExtra("hbid"))
+			hbid = intent.getStringExtra("hbid");
 		
 		tv_title = (TextView) findViewById(R.id.tv_title);
 		tv_content = (TextView) findViewById(R.id.tv_content);

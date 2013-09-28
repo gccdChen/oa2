@@ -79,9 +79,10 @@
 	    	<ImageView
 	    	    android:id="@+id/iv_verifi_code"
 	    	    android:layout_width="60dp"
-	    	    android:layout_height="wrap_content"
+	    	    android:layout_height="@dimen/footer_bar_height"
 	    	    android:layout_alignParentRight="true"
 	    	    android:layout_centerVertical="true"
+	    	    android:onClick="refreshCode"
 	    	    android:layout_marginRight="5dp"
 	    	    android:scaleType="fitXY"
 	    	    android:src="@drawable/test_vifi_code" />
@@ -149,7 +150,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_login"
+        android:layout_below="@id/btn_reg"
         android:layout_centerHorizontal="true"
         android:text="@string/reg_declare"
         android:textSize="10sp" />

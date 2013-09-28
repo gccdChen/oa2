@@ -16,7 +16,7 @@ public class C {
 
 		public static final String BASE 				= "http://www.duolia.com/yun/pad";
 		public static final String login					= "/ywyl.jsp";
-		public static final String reg					= "/regist_do.jsp";
+		public static final String reg					= "http://www.duolia.com/yun/regist_do.jsp";
 		public static final String data					= "/xtl.jsp";
 		//修改个人信息
 		public static final String upadatePersonInfo					= "/hblb.jsp";
@@ -103,10 +103,12 @@ public class C {
 	}
 	////// 设置
 	public static final class config{
+		public static final String name 		="config";
 		public static final String user 		="user";
 		public static final String mac 		="mac";
 		public static final String dlyid 		="dlyid";
 		public static final String uid 		="uid";
+		public static final String isadmin 		="isadmin";
 		public static final String username 		="username";
 		
 	}

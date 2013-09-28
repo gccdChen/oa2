@@ -55,6 +55,7 @@ public class UiShowHandlerFlow extends BaseUiAuth{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_flowdetail);
+		db = FinalDb.create(this);
 		init();
 	}
 	private void init() {

@@ -77,9 +77,10 @@ public class InitService extends BaseService{
 					user.isadmin  = (Integer) message.getResult("isadmin") ==1; 
 					
 					saveInfo(message);
-					
+					getSharedPreferences(C.config.name, 0).edit().putBoolean(C.config.isadmin, user.isadmin);
 					android.os.Message msg = new android.os.Message();
 					msg.what = UiMessageCenter.REFRESH_CODE;
+					
 					UiMessageCenter.handler.sendMessage(msg);
 					
 //					List<String> list = ImageLoader.getUrls(result);

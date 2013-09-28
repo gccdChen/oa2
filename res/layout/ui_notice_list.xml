@@ -92,4 +92,5 @@
             android:onClick="doSearch"
             android:background="@drawable/btn_send" />
     </LinearLayout>
+    
 </RelativeLayout>
