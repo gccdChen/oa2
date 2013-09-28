@@ -228,6 +228,12 @@ public class BaseUi extends Activity implements OnTouchListener{
 		params.put("c", "sync");
 		fhttp.post(url,params, callBack);
 	}
+	public void post(String url,AjaxParams params,String contentType,AjaxCallBack callBack){
+		url = getUrl(url);
+		Log.i("params", params.toString());
+		params.put("c", "sync");
+		fhttp.post(url,null,params,contentType, callBack);
+	}
 	
 	private String getUrl(String url) {
 		// TODO Auto-generated method stub

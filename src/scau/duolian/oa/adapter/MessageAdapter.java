@@ -57,7 +57,6 @@ public class MessageAdapter extends BaseAdapter{
 	private class ViewHolder{
 		ImageView iv_face;
 		TextView tv_name;
-		TextView tv_title;
 		TextView tv_content;
 		TextView tv_time;
 	}
@@ -72,7 +71,6 @@ public class MessageAdapter extends BaseAdapter{
 			holder = new ViewHolder();
 			holder.iv_face = (ImageView) view.findViewById(R.id.iv_face);
 			holder.tv_name = (TextView) view.findViewById(R.id.tv_name);
-			holder.tv_title = (TextView) view.findViewById(R.id.tv_title);
 			holder.tv_content = (TextView) view.findViewById(R.id.tv_content);
 			holder.tv_time = (TextView) view.findViewById(R.id.tv_time);
 			view.setTag(holder);
@@ -84,13 +82,14 @@ public class MessageAdapter extends BaseAdapter{
 			Wdhb user = db.findById(message.author, Wdhb.class);
 			if(user != null){
 				if(!StringUtil.isBlank(user.name))
-					holder.tv_name.setText(user.name);
+					holder.tv_name.setText("【"+user.name+"】");
 				if(!StringUtil.isBlank(user.photo))
 				imageLoader.loadImage(user.photo, holder.iv_face);
 			}
 		}
-		holder.tv_title.setText(message.title);
-		holder.tv_content.setText(message.subtitle);
+		if(!StringUtil.isBlank(message.subtitle))
+			holder.tv_content.setText("["+message.title+"]"+message.subtitle);
+		if(!StringUtil.isBlank(message.dt))
 		holder.tv_time.setText(DateUtil.longStrToStr(message.dt) );
 		
 		

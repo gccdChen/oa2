@@ -41,6 +41,10 @@ import android.widget.ListView;
  * 	hbid -伙伴id hbid
  */
 public class UiParnerCom extends BaseUiAuth {
+	String lineEnd = "\r\n";
+    String twoHyphens = "--";
+	String boundary = "*****";
+	
 	private ListView lv_parnermessage = null;
 	private List<Wddh> wdhbdhs = new ArrayList<Wddh>();
 	private Wdhb wdhb = null;
@@ -115,14 +119,13 @@ public class UiParnerCom extends BaseUiAuth {
 				File file = new File(selFilePath);
 				if (file.exists()) {
 					params.put("file", file);// 是否正确
-//					Log.i("doSend", result.getPath() + "    " + result.toString());
 				}
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		get(C.api.addParnerCom, params, new MyCallBack(this) {
+		post(C.api.addParnerCom, params,"multipart/form-data;boundary="+boundary, new MyCallBack(this) {
 			public void onResult(BaseMessage message) {
 
 				super.onResult(message);
