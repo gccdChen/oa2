@@ -88,13 +88,11 @@ public class UiAddTask extends BaseUiAuth {
 	}
 
 	public void doSelectFile(View v) {
-		openFileChooser();
+		startActivityForResult(openFileChooser(), SELECT_FILE_CODE);
 	}
 
-	private final static int FILECHOOSER_RESULTCODE = 9;
-
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == FILECHOOSER_RESULTCODE)
+		if (requestCode == SELECT_FILE_CODE)
 			result = data == null || resultCode != RESULT_OK ? null : data.getData();
 		super.onActivityResult(requestCode, resultCode, data);
 	}

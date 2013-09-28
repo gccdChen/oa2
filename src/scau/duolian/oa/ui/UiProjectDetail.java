@@ -23,6 +23,7 @@ import scau.duolian.oa.base.MyCallBack;
 import scau.duolian.oa.model.Wddh;
 import scau.duolian.oa.model.Wdrw;
 import scau.duolian.oa.model.Wdxm;
+import scau.duolian.oa.util.DeviceHelper;
 import scau.duolian.oa.util.JsonUtil;
 import scau.duolian.oa.util.SDUtil;
 import scau.duolian.oa.util.StringUtil;
@@ -59,9 +60,8 @@ public class UiProjectDetail extends BaseUiAuth {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_project_detail);
-		db.create(this);
+		db = FinalDb.create(this);
 		init();
-		
 		refresh();
 	}
 
@@ -88,7 +88,7 @@ public class UiProjectDetail extends BaseUiAuth {
 					JSONArray modelJsonArray;
 					try {
 						modelJsonArray = new JSONArray(result);
-						wddhs = JsonUtil.json2models("wddh", modelJsonArray);
+						wddhs = JsonUtil.json2models("Wddh", modelJsonArray);
 						update();
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
@@ -104,7 +104,7 @@ public class UiProjectDetail extends BaseUiAuth {
 		id = intent.getStringExtra("id");
 		wdxm = db.findById(id, Wdxm.class);
 		
-		elv_content = (ExpandableListView) findViewById(R.id.elv_content);
+		elv_content = (ExpandableListView) findViewById(R.id.el_pro_content);
 		adapter = new ProDetailAdapter(this,wdxm,db,wddhs);
 		elv_content.setAdapter(adapter);
 		
@@ -200,5 +200,9 @@ public class UiProjectDetail extends BaseUiAuth {
 		showSelectPicDialog();
 	}
 	
-	
+	public void addToCalender(View view) {
+		// TODO Auto-generated method stub
+		DeviceHelper.
+		wdxm.bz
+	}
 }

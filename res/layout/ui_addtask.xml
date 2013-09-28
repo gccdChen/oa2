@@ -106,13 +106,14 @@
                     style="@style/pro_main_item_tv"
                     android:text="责任人" />
 
-                <Spinner
+                 <EditText
                     android:id="@+id/edt_zrr"
-                    android:layout_weight="5"
-                    android:entries="@array/task_status_arrays"
-                    android:background="@drawable/task_person"
                     style="@style/pro_main_item_edt" />
 
+                <ImageView
+                    android:layout_width="@dimen/main_item_height"
+                    android:layout_height="@dimen/main_item_height"
+                    android:src="@drawable/date_project" />
             </LinearLayout>
 
             <include layout="@layout/div" />

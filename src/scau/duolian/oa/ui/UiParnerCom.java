@@ -125,7 +125,7 @@ public class UiParnerCom extends BaseUiAuth {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		post(C.api.addParnerCom, params,"multipart/form-data;boundary="+boundary, new MyCallBack(this) {
+		post(C.api.addParnerCom, params,selFilePath==null ? null: "multipart/form-data;boundary="+boundary, new MyCallBack(this) {
 			public void onResult(BaseMessage message) {
 
 				super.onResult(message);

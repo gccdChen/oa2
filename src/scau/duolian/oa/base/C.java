@@ -91,8 +91,9 @@ public class C {
 		public static final String file = "file";
 		public static final String phone = "phone";
 		
-		public static final String regName = "regName";
-		public static final String password2 = "password2";
+		public static final String regName = "RegName";
+		public static final String password1 = "Password";
+		public static final String password2 = "Password2";
 		public static final String validateCode = "validateCode";
 		public static final String hbid = "hbid";
 		

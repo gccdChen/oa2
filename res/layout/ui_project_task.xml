@@ -72,16 +72,17 @@
                 android:layout_width="fill_parent"
                 android:layout_height="0.0dip"
                 android:layout_weight="1" >
+                <ListView 
+            	    android:id="@+id/lv_task_list"
+            	    android:background="@color/blue"
+            	    android:layout_width="match_parent"
+            	    android:layout_height="match_parent">
+            	</ListView>
             	<ExpandableListView 
             	    android:id="@+id/el_pro_task_list"
             	    android:layout_width="match_parent"
             	    android:layout_height="match_parent">
             	</ExpandableListView>
-            	<ListView 
-            	    android:id="@+id/lv_task_list"
-            	    android:layout_width="match_parent"
-            	    android:layout_height="match_parent">
-            	</ListView>    
 			</FrameLayout>
             <TabWidget
                 android:id="@android:id/tabs"

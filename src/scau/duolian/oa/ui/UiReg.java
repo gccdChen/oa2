@@ -1,7 +1,5 @@
 package scau.duolian.oa.ui;
 
-import java.util.regex.Pattern;
-
 import net.tsz.afinal.FinalBitmap;
 import net.tsz.afinal.http.AjaxParams;
 import scau.duolian.oa.R;
@@ -9,7 +7,6 @@ import scau.duolian.oa.base.BaseMessage;
 import scau.duolian.oa.base.BaseUi;
 import scau.duolian.oa.base.C;
 import scau.duolian.oa.base.MyCallBack;
-import scau.duolian.oa.util.PatternUtil;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -55,9 +52,8 @@ public class UiReg extends BaseUi {
 		String validateCode = edt_verifi_code.getText().toString();
 		AjaxParams params = new AjaxParams();
 		params.put("a","reg");
-		params.put("dlyid","1");
 		params.put(C.params.regName,regName);
-		params.put(C.params.password,password);
+		params.put(C.params.password1,password);
 		params.put(C.params.password2,password2);
 		params.put(C.params.validateCode,validateCode);
 		post(C.api.reg, params, new MyCallBack(this,true){

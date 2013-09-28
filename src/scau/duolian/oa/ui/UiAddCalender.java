@@ -35,7 +35,7 @@ public class UiAddCalender extends BaseUiAuth{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_addcalender);
-		db.create(this);
+		db = FinalDb.create(this);
 		init();
 	}
 	String id = null;

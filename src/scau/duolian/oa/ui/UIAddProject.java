@@ -52,7 +52,7 @@ public class UIAddProject extends BaseUiAuth {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_addproject);
-		db.create(this);
+		db = FinalDb.create(this);
 		init();
 	}
 	private String id = null;

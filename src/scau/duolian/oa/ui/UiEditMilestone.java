@@ -32,7 +32,7 @@ public class UiEditMilestone extends BaseUiAuth {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_editmilestone);
 
-		db.create(this);
+		db =FinalDb.create(this);
 		
 		init();
 	}

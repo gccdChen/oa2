@@ -47,8 +47,8 @@ public class UiProjectTask extends BaseUiAuth{
 		mTabHost = (TabHost) findViewById(R.id.tabhost);
 		mTabHost.setup();
 		
-		mTabHost.addTab(mTabHost.newTabSpec("pro").setIndicator("hello").setContent(R.id.lv_task_list));
 		mTabHost.addTab(mTabHost.newTabSpec("task").setIndicator("world").setContent(R.id.el_pro_task_list));
+		mTabHost.addTab(mTabHost.newTabSpec("pro").setIndicator("hello").setContent(R.id.lv_task_list));
 		spi_task_type = (Spinner) findViewById(R.id.spi_task_type);
 	}
 
@@ -80,14 +80,6 @@ public class UiProjectTask extends BaseUiAuth{
 		rb_pro_selected = (RadioButton) findViewById(R.id.rb_pro_selected);
 		rb_task_selected = (RadioButton) findViewById(R.id.rb_task_selected);
 		
-		rb_pro_selected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-			
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				// TODO Auto-generated method stub
-				mTabHost.setCurrentTab(0);
-			}
-		});
 		rb_task_selected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			
 			@Override
@@ -96,12 +88,21 @@ public class UiProjectTask extends BaseUiAuth{
 				mTabHost.setCurrentTab(1);
 			}
 		});
+		rb_pro_selected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				// TODO Auto-generated method stub
+				mTabHost.setCurrentTab(0);
+			}
+		});
+		
 		rb_pro_selected.setChecked(true);
 		mTabHost.setCurrentTab(0);
 		
 		wdrwlxs = db.findAll(Wdrwlx.class);
 		
-		adapter =new ArrayAdapter<Wdrwlx>(this,android.R.layout.simple_list_item_2,wdrwlxs);
+		adapter =new ArrayAdapter<Wdrwlx>(this,android.R.layout.simple_spinner_item,wdrwlxs);
 		spi_task_type.setAdapter(adapter);
 		
 		

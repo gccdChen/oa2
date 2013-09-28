@@ -10,7 +10,6 @@ import net.tsz.afinal.http.AjaxParams;
 import scau.duolian.oa.R;
 import scau.duolian.oa.util.AppUtil;
 import scau.duolian.oa.util.DeviceHelper;
-import scau.duolian.oa.util.StringUtil;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -174,13 +173,14 @@ public class BaseUi extends Activity implements OnTouchListener{
 	}
 	
 	protected String getMac(){
-		/*SharedPreferences preferences = getPreferences(0);
-		String mac = preferences.getString(C.config.mac, "");
-		if(StringUtil.isBlank(mac)){
-			mac = DeviceHelper.getMac(this);
-			preferences.edit().putString(C.config.mac, mac).commit();
-		}
-		return mac;*/
+//		SharedPreferences preferences = getPreferences(0);
+//		String mac = null;
+//		if(!preferences.contains(C.config.mac)){
+//			mac = DeviceHelper.getMac(this);
+//			preferences.edit().putString(C.config.mac, mac).commit();
+//		}else
+//			mac = preferences.getString(C.config.mac, "");
+//		return mac;
 		return "00:16:6D:C0:1D:5D";//test
 	}
 	

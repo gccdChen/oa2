@@ -43,7 +43,7 @@ public class UiCalenderDetail extends BaseUiAuth{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_calender_detail);
-		db.create(this);
+		db = FinalDb.create(this);
 		init();
 		refresh();
 	}

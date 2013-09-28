@@ -17,27 +17,27 @@ import scau.duolian.oa.model.Wdhb;
 public class UiPartnerList extends BaseUiAuth{
 	private List<Wdhb> wdhbs = new ArrayList<Wdhb>();
 	private ListView lv_content = null;
-	private FinalDb finalDb = null;
+	private FinalDb db = null;
 	private View btn_add = null;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_partner);
-		finalDb = FinalDb.create(this);
+		db = FinalDb.create(this);
 		init();
 //		refresh();
 	}
 	private void refresh() {
 		// TODO Auto-generated method stub
-		wdhbs = finalDb.findAll(Wdhb.class);
+		wdhbs = db.findAll(Wdhb.class);
 		Log.i("wdhbs refresh", ""+wdhbs.size());
 		adapter.notifyDataSetChanged();
 	}
 	private PartnerListAdapter adapter = null;
 	
 	private void init(){
-		wdhbs = finalDb.findAll(Wdhb.class);
+		wdhbs = db.findAll(Wdhb.class);
 		lv_content = (ListView) findViewById(R.id.lv_content);
 		adapter = new PartnerListAdapter(this, wdhbs);
 		lv_content.setAdapter(adapter);

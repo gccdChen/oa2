@@ -31,7 +31,7 @@ public class UiAddMilestone extends BaseUiAuth {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_addmilestone);
 
-		db.create(this);
+		db = FinalDb.create(this);
 		
 		init();
 	}

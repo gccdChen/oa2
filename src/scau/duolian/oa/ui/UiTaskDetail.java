@@ -58,7 +58,7 @@ public class UiTaskDetail extends BaseUiAuth {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_task_detail);
-		db.create(this);
+		db = FinalDb.create(this);
 		init();
 		
 		refresh();

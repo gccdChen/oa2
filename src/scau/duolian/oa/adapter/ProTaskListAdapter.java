@@ -76,6 +76,7 @@ public class ProTaskListAdapter extends BaseExpandableListAdapter{
 	private class ViewGroupHolder{
 		TextView tv_title;
 		ImageView iv_fold;
+		ImageView iv_holder;
 	}
 	
 	@Override
@@ -88,6 +89,7 @@ public class ProTaskListAdapter extends BaseExpandableListAdapter{
 			holder = new ViewGroupHolder();
 			holder.tv_title = (TextView)view.findViewById(R.id.tv_title);
 			holder.iv_fold = (ImageView)view.findViewById(R.id.iv_fold);
+			holder.iv_holder = (ImageView)view.findViewById(R.id.iv_holder);
 			view.setTag(holder);
 		}else{
 			holder = (ViewGroupHolder) view.getTag();
@@ -100,7 +102,7 @@ public class ProTaskListAdapter extends BaseExpandableListAdapter{
 			holder.iv_fold.setImageResource(R.drawable.fold);
 		}
 		
-		view.setOnClickListener(new View.OnClickListener() {
+		holder.iv_holder.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
