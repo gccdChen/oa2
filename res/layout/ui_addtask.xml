@@ -64,8 +64,8 @@
                     android:text="开始日期" />
 
                 <EditText
-                   
                     android:id="@+id/edt_jhksrq"
+                    android:inputType="date"
                     style="@style/pro_main_item_edt" />
 
                 <ImageView
