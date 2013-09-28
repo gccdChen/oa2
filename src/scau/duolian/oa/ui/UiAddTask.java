@@ -2,13 +2,17 @@ package scau.duolian.oa.ui;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 
+import net.tsz.afinal.FinalDb;
 import net.tsz.afinal.http.AjaxParams;
 import scau.duolian.oa.R;
 import scau.duolian.oa.base.BaseMessage;
 import scau.duolian.oa.base.BaseUiAuth;
 import scau.duolian.oa.base.C;
 import scau.duolian.oa.base.MyCallBack;
+import scau.duolian.oa.model.Wdhb;
+import scau.duolian.oa.model.Wdrwlx;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,11 +28,15 @@ public class UiAddTask extends BaseUiAuth {
 	private EditText title, bz, zrr, jhksrq, jhjsrq;
 	private Spinner rwlb;
 	private Uri result;
-
+	private FinalDb db;
+	
+	private  List<Wdhb> wdhbs = null;
+	private  List<Wdrwlx> wdrwlxs = null;
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ui_addtask);
+		db = FinalDb.create(this);
 		init();
 		refresh();
 	}
@@ -40,6 +48,8 @@ public class UiAddTask extends BaseUiAuth {
 		jhksrq = (EditText) findViewById(R.id.edt_jhksrq);
 		jhjsrq = (EditText) findViewById(R.id.edt_jhjsrq);
 		rwlb = (Spinner) findViewById(R.id.spi_rwlb);
+		
+		wdhbs = db.findAll(Wdhb.class);
 	}
 
 	private void refresh() {

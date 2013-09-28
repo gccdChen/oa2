@@ -20,6 +20,7 @@
             android:layout_height="@dimen/top_height"
             android:layout_alignParentRight="true"
             android:onClick="doForbidden"
+            android:visibility="gone"
             android:background="@drawable/forbidden"/>
         <View
             android:id="@+id/view1"
@@ -27,16 +28,18 @@
             android:layout_marginLeft="@dimen/top_height" />
 
         <TextView
+            android:id="@+id/tv_title"
             style="@style/top_tv"
-            android:text="编辑任务" />
+            android:text="新建任务" />
         <View
             android:id="@+id/view2"
-            android:layout_toLeftOf="@id/btn_forbidden"
             style="@style/top_div"
+            android:layout_toLeftOf="@id/btn_forbidden"
+            android:visibility="gone"
             android:layout_marginLeft="@dimen/top_height" />
        
     </RelativeLayout>
-<View
+		<View
                 style="@style/main_boder"
                 />
     <ScrollView
@@ -63,7 +66,7 @@
                     android:id="@+id/edt_title"
                     style="@style/pro_main_item_edt"
                     android:layout_weight="5"
-                    android:text="项目功能测试" />
+                    android:hint="不超过12个汉字" />
 
             </LinearLayout>
 
@@ -103,10 +106,10 @@
 
                 <EditText
                     android:id="@+id/edt_jhjsrq"
-                    android:onClick="showSelDateB"
                     style="@style/pro_main_item_edt" />
 
                 <ImageView
+                    android:onClick="showSelDateB"
                     android:layout_width="@dimen/main_item_height"
                     android:layout_height="@dimen/main_item_height"
                     android:src="@drawable/date_project" />

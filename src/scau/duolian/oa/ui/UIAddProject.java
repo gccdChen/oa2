@@ -2,6 +2,7 @@ package scau.duolian.oa.ui;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +25,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -82,6 +85,9 @@ public class UIAddProject extends BaseUiAuth {
 		Intent intent = getIntent();
 		if (!intent.hasExtra("id"))
 			return;
+		
+		((TextView) findViewById(R.id.tv_title)).setText("编辑项目");
+		
 		id = intent.getStringExtra("id");
 		Wdxm wdxm = db.findById(id, Wdxm.class);
 		edt_title.setText(wdxm.title);
@@ -171,17 +177,16 @@ public class UIAddProject extends BaseUiAuth {
 		openFileChooser();
 	}
 
-	private final static int FILECHOOSER_RESULTCODE = 9;
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == FILECHOOSER_RESULTCODE)
+		if (requestCode == SELECT_FILE_CODE)
 			result = data == null || resultCode != RESULT_OK ? null : data.getData();
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
 	// btn
 	public void showSelDate(View view) {
-		Date date = new Date();
+		Calendar calendar = Calendar.getInstance();
 		DatePickerDialog dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
 			@Override
@@ -189,11 +194,12 @@ public class UIAddProject extends BaseUiAuth {
 				// TODO Auto-generated method stub
 				jhksrq.setText("" + year + "-" + monthOfYear + "-" + dayOfMonth);
 			}
-		}, date.getYear(), date.getMonth(), date.getDate());
+		}, calendar.get(Calendar.YEAR) , calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+		dialog.show();
 	}
 
 	public void showSelDateB(View view) {
-		Date date = new Date();
+		Calendar calendar = Calendar.getInstance();
 		DatePickerDialog dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
 			@Override
@@ -201,25 +207,39 @@ public class UIAddProject extends BaseUiAuth {
 				// TODO Auto-generated method stub
 				jhjsrq.setText("" + year + "-" + monthOfYear + "-" + dayOfMonth);
 			}
-		}, date.getYear(), date.getMonth(), date.getDate());
+		}, calendar.get(Calendar.YEAR) , calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+		dialog.show();
 	}
 
 	Dialog dialog = null;
 
 	public void selPartner(View view) {
 		if (dialog == null) {
-			dialog = new Dialog(this);
+			dialog = new Dialog(this,R.style.scau_dialog);
+			View v = LayoutInflater.from(this).inflate(R.layout.dialog_sel_hb, null);
+			dialog.setContentView(v);
 
-			LinearLayout layout = new LinearLayout(this);
-			layout.setOrientation(LinearLayout.VERTICAL);
-			LayoutParams params = (LayoutParams) layout.getLayoutParams();
-			params.height = 200;
-			layout.setLayoutParams(params);
+			ViewGroup layout = (ViewGroup) v.findViewById(R.id.ll_1);
 
-			ListView listView = new ListView(this);
-			SelHbAdapter adapter = new SelHbAdapter(this, wdhbs, (TextView) view, dialog);
-			adapter.selId = selfzrid;
-			listView.setAdapter(adapter);
+			TextView tv_name = null;
+			for(int i =0 ;i<wdhbs.size();i++){
+				final Wdhb wdhb = wdhbs.get(i);
+				tv_name = new TextView(this);
+				tv_name.setText(wdhb.name);
+				tv_name.setOnClickListener(new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						fzr.setText(wdhb.name);
+						if(selfzrid != null)
+							selfzrid = wdhb.id;
+						if(dialog != null)
+							dialog.dismiss();
+					}
+				});
+				layout.addView(tv_name);
+			}
 		}
 		dialog.show();
 	}
@@ -232,11 +252,8 @@ public class UIAddProject extends BaseUiAuth {
 		if (dialog2 == null) {
 			dialog2 = new Dialog(this);
 
-			LinearLayout layout = new LinearLayout(this);
-			layout.setOrientation(LinearLayout.VERTICAL);
-			LayoutParams params = (LayoutParams) layout.getLayoutParams();
-			params.height = 200;
-			layout.setLayoutParams(params);
+			View v = LayoutInflater.from(this).inflate(R.layout.dialog_sel_hb, null);
+			ViewGroup layout = (ViewGroup) v.findViewById(R.id.ll_1);
 
 			ListView listView = new ListView(this);
 
@@ -247,8 +264,8 @@ public class UIAddProject extends BaseUiAuth {
 				adapter2 = new MutiSelHbAdapter(this, wdhbs);
 			}
 			listView.setAdapter(adapter2);
-
 			layout.addView(listView);
+			dialog.setContentView(v);
 
 			Button btn_sure = new Button(this);
 			btn_sure.setText("确认");
