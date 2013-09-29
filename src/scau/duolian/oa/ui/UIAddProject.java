@@ -228,8 +228,7 @@ public class UIAddProject extends BaseUiAuth {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
 						fzr.setText(wdhb.name);
-						if(selfzrid != null)
-							selfzrid = wdhb.id;
+						selfzrid = wdhb.id;
 						if(dialog != null)
 							dialog.dismiss();
 					}
@@ -262,7 +261,7 @@ public class UIAddProject extends BaseUiAuth {
 				tv_name.setText(wdhb.name);
 				tv_name.setOnClickListener(new MyOnClickListenter(tv_name, wdhb, selcys));
 				if(selcys && sels_cys.contains(wdhb)){
-					tv_name.setBackgroundColor(0xFFFFFFFF);
+					tv_name.setBackgroundColor(0xFF0000FF);
 				}else if(!selcys && sels_gcys.contains(wdhb)){
 					tv_name.setBackgroundColor(0xFF0000FF);
 				}
@@ -282,9 +281,8 @@ public class UIAddProject extends BaseUiAuth {
 							selcyids += wdhb.id+",";
 							selnames.append( wdhb.name+",");
 						}
-					}
-					else{
-						for(Wdhb wdhb : sels_cys){
+					}else{
+						for(Wdhb wdhb : sels_gcys){
 							selgcyids += wdhb.id+",";
 							selnames.append( wdhb.name+",");
 						}
