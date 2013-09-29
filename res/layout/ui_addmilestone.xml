@@ -71,6 +71,7 @@
                 <ImageView
                     android:layout_width="@dimen/main_item_height"
                     android:layout_height="@dimen/main_item_height"
+                    android:onClick="showSelDate"
                     android:src="@drawable/date_project" />
             </LinearLayout>
 
@@ -94,6 +95,7 @@
                 <ImageView
                     android:layout_width="@dimen/main_item_height"
                     android:layout_height="@dimen/main_item_height"
+                    android:onClick="showSelDateB"
                     android:src="@drawable/alarm" />
             </LinearLayout>
        <include layout="@layout/div" />

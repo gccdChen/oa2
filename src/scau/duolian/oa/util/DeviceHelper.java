@@ -131,7 +131,18 @@ public class DeviceHelper {
 
 	public static void sendEmail(Context context, String email) {
 		// TODO Auto-generated method stub
-
+		        String[] reciver = new String[] {email};  
+//		        String[] mySbuject = new String[] { "test" };  
+//		        String myCc = "cc";  
+//		        String mybody = "测试Email Intent";  
+		        Intent myIntent = new Intent(android.content.Intent.ACTION_SEND);  
+		        myIntent.setType("plain/text");  
+		        myIntent.putExtra(android.content.Intent.EXTRA_EMAIL, reciver);  
+//		        myIntent.putExtra(android.content.Intent.EXTRA_CC, myCc);  
+//		        myIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, mySbuject);  
+//		        myIntent.putExtra(android.content.Intent.EXTRA_TEXT, mybody);  
+		       context.startActivity(Intent.createChooser(myIntent, "mail test"));  
+		  
 	}
 
 	private static String calanderURL = "";
@@ -151,7 +162,7 @@ public class DeviceHelper {
 		}
 	}
 
-	public static void addToCalendar(String title, Calendar cal, ContentResolver conre) {
+	public static void addToCalendar(String title,String content, Calendar cal, ContentResolver conre) {
 
 		String calId = "";
 		Cursor userCursor = conre.query(Uri.parse(calanderURL), null, null, null, null);
@@ -160,13 +171,12 @@ public class DeviceHelper {
 			calId = userCursor.getString(userCursor.getColumnIndex("_id"));
 		}
 		ContentValues event = new ContentValues();
+		
 		event.put("title", title);
-		// 插入hoohbood@gmail.com这个账户
+		event.put("description", content);
 		event.put("calendar_id", calId);
 		event.put("eventTimezone", Time.getCurrentTimezone());
-		cal.set(Calendar.HOUR_OF_DAY, 10);
 		long start = cal.getTime().getTime();
-		cal.set(Calendar.HOUR_OF_DAY, 11);
 		long end = cal.getTime().getTime();
 
 		event.put("dtstart", start);

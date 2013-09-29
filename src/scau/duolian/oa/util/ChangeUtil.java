@@ -20,7 +20,7 @@ public class ChangeUtil {
 		for(int i = 0 ;i < wdrcs.size(); i++){
 			Wdrc wdrc = wdrcs.get(i);
 			String xdrq = DateUtil.strTostr(wdrc.xdsj);
-			if(!curdate.equals(xdrq)){
+			if(curdate == null || !curdate.equals(xdrq)){
 				if(calenderNote != null)
 					calenderNotes.add(calenderNote);
 				calenderNote = new CalenderNote(xdrq, new ArrayList<Wdrc>());

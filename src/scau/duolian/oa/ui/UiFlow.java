@@ -40,7 +40,7 @@ public class UiFlow extends BaseUiAuth{
 		lv_flow = (ListView) findViewById(R.id.lv_flow);
 		spi_miletype = (Spinner) findViewById(R.id.spi_miletype);
 		
-		spi_miletype.setAdapter(new ArrayAdapter<Wdlclx>(this,android.R.layout.simple_list_item_1,wdlclxs));
+		spi_miletype.setAdapter(new ArrayAdapter<Wdlclx>(this,android.R.layout.simple_spinner_item,wdlclxs));
 		adapter = new FlowAdapter(this, wdlcs);
 		lv_flow.setAdapter(adapter);
 		menu = (MenuWidget) findViewById(R.id.menu);

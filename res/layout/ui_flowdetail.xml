@@ -49,8 +49,9 @@
             android:orientation="vertical" >
 
             <ExpandableListView
+                android:id="@+id/elv_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="400dp" >
             </ExpandableListView>
 
             <LinearLayout
@@ -250,8 +251,6 @@
                     android:layout_toRightOf="@id/pic_bottom"
                     android:gravity="left"
                     android:hint=" 跟他/她说两句" >
-
-                    <requestFocus />
                 </EditText>
 
                 <View

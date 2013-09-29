@@ -188,10 +188,10 @@ public class ProDetailAdapter extends BaseExpandableListAdapter{
 				}
 				if(!StringUtil.isBlank(project.member)){
 					String m = project.member.replaceAll(",", "','");
-					List<Wdhb> members = db.findAllByWhere(Wdhb.class, " in ('"+m+"')");
+					List<Wdhb> members = db.findAllByWhere(Wdhb.class, " id in ('"+m+"')");
 					StringBuffer tx_mem = new StringBuffer();
 					for(int i=0;i<members.size();i++){
-						tx_mem.append(members.get(i)+",");
+						tx_mem.append(members.get(i).name+",");
 					}
 					tv_teamer.setText( tx_mem.subSequence(0,tx_mem.length()-1));
 				}

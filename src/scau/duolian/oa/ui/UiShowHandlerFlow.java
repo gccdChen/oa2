@@ -35,7 +35,6 @@ import scau.duolian.oa.util.JsonUtil;
 public class UiShowHandlerFlow extends BaseUiAuth{
 	private FinalDb db = null;
 	private String id = null;
-	private boolean show = true;
 	
 	private ExpandableListView elv_content = null;
 	private ShowFlowAdapter adapter = null;
@@ -57,12 +56,12 @@ public class UiShowHandlerFlow extends BaseUiAuth{
 		setContentView(R.layout.ui_flowdetail);
 		db = FinalDb.create(this);
 		init();
+		refresh();
 	}
 	private void init() {
 		// TODO Auto-generated method stub
 		Intent intent = getIntent();
 		id = intent.getStringExtra("id");
-		show = intent.getBooleanExtra("show", true);
 		
 		Wdlc wdlc = db.findById(id, Wdlc.class);
 		

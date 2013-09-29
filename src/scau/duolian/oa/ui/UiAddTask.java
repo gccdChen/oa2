@@ -3,6 +3,7 @@ package scau.duolian.oa.ui;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
@@ -15,7 +16,9 @@ import scau.duolian.oa.base.C;
 import scau.duolian.oa.base.MyCallBack;
 import scau.duolian.oa.model.Wdhb;
 import scau.duolian.oa.model.Wdrwlx;
+import scau.duolian.oa.util.DateUtil;
 import scau.duolian.oa.util.SDUtil;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -29,7 +32,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -37,7 +40,7 @@ import android.widget.TextView;
  * 添加任务
  */
 public class UiAddTask extends BaseUiAuth {
-	private EditText title, bz, jhksrq, jhjsrq;
+	private TextView title, bz, jhksrq, jhjsrq;
 	private TextView zrr;
 	private Spinner rwlb;
 	private Uri result;
@@ -56,11 +59,11 @@ public class UiAddTask extends BaseUiAuth {
 	}
 
 	private void init() {
-		title = (EditText) findViewById(R.id.edt_title);
-		bz = (EditText) findViewById(R.id.edt_bz);
+		title = (TextView) findViewById(R.id.tv_title);
+		bz = (TextView) findViewById(R.id.edt_bz);
 		zrr = (TextView) findViewById(R.id.tv_zrr);
-		jhksrq = (EditText) findViewById(R.id.edt_jhksrq);
-		jhjsrq = (EditText) findViewById(R.id.edt_jhjsrq);
+		jhksrq = (TextView) findViewById(R.id.edt_jhksrq);
+		jhjsrq = (TextView) findViewById(R.id.edt_jhjsrq);
 		rwlb = (Spinner) findViewById(R.id.spi_rwlb);
 
 		wdrwlxs = db.findAll(Wdrwlx.class);
@@ -74,20 +77,22 @@ public class UiAddTask extends BaseUiAuth {
 
 	}
 
-	public void doConfirm(View v) {
+	public void doSure(View v) {
+		String str_title = title.getText().toString();
+		String str_bz = bz.getText().toString();
 		AjaxParams params = new AjaxParams();
 		params.put("a", "send");
 		params.put("dlyid", getUser().dlyid);
 		params.put("uid", getUser().uid);
 		params.put("mac", getMac());
 		params.put("rwlb", rwlb.getSelectedItem().toString());
-		params.put("title", title.toString().trim());
-		params.put("bz", bz.toString().trim());
+		params.put("title", str_title.toString().trim());
+		params.put("bz", str_bz.toString().trim());
 		if(selzrrid != null)
 			params.put("zrr", selzrrid);
-		params.put("jhksrq", jhksrq.toString().trim());
-		params.put("jhjsrq", jhjsrq.toString().trim());
-		try {
+		params.put("jhksrq", ""+DateUtil.dateStrToLong(jhksrq.getText().toString()));
+		params.put("jhjsrq", ""+DateUtil.dateStrToLong(jhksrq.getText().toString()));
+	/*	try {
 			if (result != null) {
 				File file = new File(result.getPath());
 				if (file.exists()) {
@@ -98,18 +103,16 @@ public class UiAddTask extends BaseUiAuth {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		get(C.api.addTask, params, new MyCallBack(this) {
+		}*/
+		post(C.api.addTask, params, new MyCallBack(this) {
 			public void onResult(BaseMessage message) {
+				toast(message.getMessage());
 				if (message.isSuccess()) {
-					toast("成功");
-				} else {
-					toast(message.getMessage());
+					finish();
 				}
 				super.onResult(message);
 			}
 		});
-		finish();
 	}
 
 	public void doCancel(View v) {
@@ -137,7 +140,6 @@ public class UiAddTask extends BaseUiAuth {
 	interface MyCallback{
 		public String path = null;
 		public Bitmap bitmap = null;
-				
 		public void handler(String path,Bitmap bitmap);
 	}
 	
@@ -158,13 +160,14 @@ public class UiAddTask extends BaseUiAuth {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		//handle 方法.
 	}
 
 	private void handlePicFromCamera(Intent data) {
 		Bundle bundle = data.getExtras();
 		Bitmap bitmap = (Bitmap) bundle.get("data");//拿到bitmap
 		SDUtil.saveImage(bitmap, UUID.randomUUID()+".jog", C.dir.temp);//拿到path
+		//handle 方法.
 	}
 
 	Dialog dialog = null;
@@ -196,6 +199,31 @@ public class UiAddTask extends BaseUiAuth {
 				layout.addView(tv_name);
 			}
 		}
+		dialog.show();
+	}
+	public void showSelDate(View view) {
+		Calendar calendar = Calendar.getInstance();
+		DatePickerDialog dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+			@Override
+			public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+				// TODO Auto-generated method stub
+				jhksrq.setText("" + year + "-" + monthOfYear + "-" + dayOfMonth);
+			}
+		}, calendar.get(Calendar.YEAR) , calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+		dialog.show();
+	}
+
+	public void showSelDateB(View view) {
+		Calendar calendar = Calendar.getInstance();
+		DatePickerDialog dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+			@Override
+			public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+				// TODO Auto-generated method stub
+				jhjsrq.setText("" + year + "-" + monthOfYear + "-" + dayOfMonth);
+			}
+		}, calendar.get(Calendar.YEAR) , calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 		dialog.show();
 	}
 

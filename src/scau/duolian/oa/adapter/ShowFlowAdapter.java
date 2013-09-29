@@ -46,7 +46,7 @@ public class ShowFlowAdapter extends BaseExpandableListAdapter{
 		this.wddhs = wddhs;
 		this.db = db;
 		this.lzlss = lzlss;
-		inflater.from(baseUi);
+		inflater = LayoutInflater.from(baseUi);
 		wdlclx = db.findById(wdlc.type, Wdlclx.class);
 		wdhb = db.findById(wdlc.author, Wdhb.class);
 	}
@@ -58,12 +58,12 @@ public class ShowFlowAdapter extends BaseExpandableListAdapter{
 	@Override
 	public Object getChild(int groupPosition, int childPosition) {
 		// TODO Auto-generated method stub
-		return null;
+		return new Object();
 	}
 	@Override
 	public long getChildId(int groupPosition, int childPosition) {
 		// TODO Auto-generated method stub
-		return 0;
+		return groupPosition+childPosition;
 	}
 	@Override
 	public View getChildView(int groupPosition, int childPosition,
@@ -76,13 +76,12 @@ public class ShowFlowAdapter extends BaseExpandableListAdapter{
 			TextView tv_level = (TextView) convertView.findViewById(R.id.tv_level);
 			TextView tv_time = (TextView) convertView.findViewById(R.id.tv_time);
 			tv_ds.setText(wdlc.title);//这个详细 好像没有 性质也没有
-			tv_type.setText(wdlclx.title);
+			tv_type.setText(wdlc.title);
 			tv_level.setText(C.array.flowLevel[Integer.parseInt(wdlc.level)]);
 			tv_time.setText(DateUtil.longStrToStr(wdlc.startdt));
 			if(StringUtil.isBlank(wdlc.attach)){
 				convertView.findViewById(R.id.ll_attach).setVisibility(View.GONE);
 			}
-			
 		}else if(groupPosition == 1){
 			LinearLayout view = new LinearLayout(baseUi);
 			ListView listView = new ListView(baseUi);
@@ -101,7 +100,7 @@ public class ShowFlowAdapter extends BaseExpandableListAdapter{
 	@Override
 	public Object getGroup(int groupPosition) {
 		// TODO Auto-generated method stub
-		return null;
+		return new Object();
 	}
 	@Override
 	public int getGroupCount() {
@@ -111,7 +110,7 @@ public class ShowFlowAdapter extends BaseExpandableListAdapter{
 	@Override
 	public long getGroupId(int groupPosition) {
 		// TODO Auto-generated method stub
-		return 0;
+		return groupPosition;
 	}
 	@Override
 	public View getGroupView(int groupPosition, boolean isExpanded,

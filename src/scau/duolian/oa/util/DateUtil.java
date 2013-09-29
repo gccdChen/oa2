@@ -40,6 +40,20 @@ public class DateUtil {
 			return null;
 		}
 	}
+	/**
+	 * 
+	 * @param str 2013-09-29
+	 * @return
+	 */
+	public static Long dateStrToLong(String str){
+		try {
+			return sdf.parse(str).getTime();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0L;
+	}
 
 	public static String strTostr(String str) {
 		if (null == str || "".equals(str))

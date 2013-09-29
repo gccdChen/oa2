@@ -47,7 +47,7 @@ import android.widget.TextView;
  * 需要参数 id ,任务 wdxm id
  */
 public class UiProjectDetail extends BaseUiAuth {
-	private TextView xmmc, title, rq, tx, xx, xj;
+	private TextView xmmc, rq, tx, xx, xj;
 	private FinalDb db = null;
 	private List<Wdrw> wdrws;
 	private Wdxm wdxm;
@@ -134,14 +134,9 @@ public class UiProjectDetail extends BaseUiAuth {
 		ContentResolver resolver = getContentResolver();
 		Uri originalUri = data.getData(); // 获得图片的uri
 		String[] proj = { MediaStore.Images.Media.DATA };
-		// 好像是android多媒体数据库的封装接口，具体的看Android文档
 		Cursor cursor = managedQuery(originalUri, proj, null, null, null);
-		// 按我个人理解 这个是获得用户选择的图片的索引值
-		int column_index = cursor
-				.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-		// 将光标移至开头 ，这个很重要，不小心很容易引起越界
+		int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
 		cursor.moveToFirst();
-		// 最后根据索引值获取图片路径
 		selFilePath = cursor.getString(column_index);
 		toast(selFilePath + "已选择.");
 //			Bitmap bitmap = MediaStore.Images.Media.getBitmap(resolver,
@@ -207,6 +202,13 @@ public class UiProjectDetail extends BaseUiAuth {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(DateUtil.longStrToDate(wdxm.ksrq));
 		ContentResolver cr = getContentResolver();
-		DeviceHelper.addToCalendar(ds, cal, cr);
+		DeviceHelper.addToCalendar("[多联小助手]"+wdxm.title,"[内容]"+ds, cal, cr);
+		toast("已加入到日历");
+	}
+	
+	public void toSetting(View view){
+		Bundle params = new  Bundle();
+		params.putString("id",wdxm.id);
+		overlay(UIAddProject.class,params);
 	}
 }

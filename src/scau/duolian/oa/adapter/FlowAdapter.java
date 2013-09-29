@@ -7,7 +7,11 @@ import scau.duolian.oa.base.BaseUi;
 import scau.duolian.oa.base.C;
 import scau.duolian.oa.model.Wddh;
 import scau.duolian.oa.model.Wdlc;
+import scau.duolian.oa.ui.UiAddFlow;
+import scau.duolian.oa.ui.UiFlow;
+import scau.duolian.oa.ui.UiShowHandlerFlow;
 import scau.duolian.oa.util.DateUtil;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,19 +69,29 @@ public class FlowAdapter extends BaseAdapter{
 		}else{
 			holder = (ViewHolder) view.getTag();
 		}
-		Wdlc wddh = wdlcs.get(position);
-		holder.tv_name.setText(wddh.author);
-		holder.tv_content.setText(wddh.title);
+		final Wdlc wdlc = wdlcs.get(position);
+		holder.tv_name.setText(wdlc.author);
+		holder.tv_content.setText(wdlc.title);
 		String status  = null;
-		if(wddh.status.equals("0"))
+		if(wdlc.status.equals("0"))
 			status = "待办";
-		else if(wddh.status.equals("-1"))
+		else if(wdlc.status.equals("-1"))
 			status = "结束";
-		else if(wddh.status.equals("-2"))
+		else if(wdlc.status.equals("-2"))
 			status = "完成";
 		else
-			status = "第"+wddh.status+"步";
-		holder.tv_time.setText(DateUtil.longStrToStr(wddh.startdt) + "  ["+status+"]");
+			status = "第"+wdlc.status+"步";
+		holder.tv_time.setText(DateUtil.longStrToStr(wdlc.startdt) + "  ["+status+"]");
+		view.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Bundle params = new Bundle();
+				params.putString("id", wdlc.id);
+				baseUi.overlay(UiShowHandlerFlow.class, params);
+			}
+		});
 		return view;
 	}
 	

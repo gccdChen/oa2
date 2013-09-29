@@ -23,8 +23,7 @@
 	            android:id="@+id/tv_starttime"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            style="@style/pro_detail_title"
-	            android:text="2013-07-10"/>
+	            style="@style/pro_detail_title"/>
 	    </LinearLayout>
 	    <LinearLayout 
 	        android:layout_width="match_parent"
@@ -40,8 +39,7 @@
 	            android:id="@+id/tv_finishtime"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            style="@style/pro_detail_title"
-	            android:text="2013-07-10"/>
+	            style="@style/pro_detail_title"/>
 	    </LinearLayout>
 	    <LinearLayout 
 	        android:layout_width="match_parent"
@@ -57,8 +55,7 @@
 	             android:id="@+id/tv_duty"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            style="@style/pro_detail_title"
-	            android:text="也无晴"/>
+	            style="@style/pro_detail_title"/>
 	    </LinearLayout>
 	    <LinearLayout 
 	        android:layout_width="match_parent"
@@ -74,8 +71,7 @@
 	            android:id="@+id/tv_teamer"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            style="@style/pro_detail_title"
-	            android:text="肖方良"/>
+	            style="@style/pro_detail_title"/>
 	    </LinearLayout>
 	    <LinearLayout 
 	        android:layout_width="match_parent"
@@ -91,8 +87,7 @@
 	            android:id="@+id/tv_observer"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            style="@style/pro_detail_title"
-	            android:text="陈光"/>
+	            style="@style/pro_detail_title"/>
 	    </LinearLayout>
 	    <LinearLayout 
 	        android:layout_width="match_parent"
@@ -108,8 +103,7 @@
 	            android:id="@+id/tv_state"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            style="@style/pro_detail_title"
-	            android:text="[正在进行]"/>
+	            style="@style/pro_detail_title"/>
 	    </LinearLayout>
 	    <LinearLayout 
 	        android:layout_width="match_parent"
@@ -125,8 +119,7 @@
 	            android:id="@+id/tv_ds"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            style="@style/pro_detail_title"
-	            android:text="把顶部俺的家看书就贷款哪款少年的卡萨诺大口径安少康阿四大四大谁打死打死"/>
+	            style="@style/pro_detail_title"/>
 	    </LinearLayout>
 	    <LinearLayout 
 	        android:layout_width="match_parent"
@@ -157,8 +150,7 @@
 	            android:id="@+id/tv_sum"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            style="@style/pro_detail_title"
-	            android:text="把顶部俺的家看书就贷款哪款少年的卡萨诺大口径安少康阿四大四大谁打死打死"/>
+	            style="@style/pro_detail_title"/>
 	    </LinearLayout>
 	</LinearLayout>
 </LinearLayout>
