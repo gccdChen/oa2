@@ -44,12 +44,12 @@
                     android:maxEms="12"
                     android:text="任务名称" />
 
-                <EditText
+                <TextView
                     android:id="@+id/tv_title"
                     style="@style/pro_main_item_edt"
                     android:layout_weight="5"
                     android:paddingLeft="10dp"
-                    android:hint="不能超过12个字" />
+                    android:text="项目功能测试" />
             </LinearLayout>
 
             <include layout="@layout/div" />
@@ -63,14 +63,14 @@
                     style="@style/pro_main_item_tv"
                     android:text="开始日期" />
 
-                <TextView
+                <EditText
+                   
                     android:id="@+id/edt_jhksrq"
                     style="@style/pro_main_item_edt" />
 
                 <ImageView
                     android:layout_width="@dimen/main_item_height"
                     android:layout_height="@dimen/main_item_height"
-                    android:onClick="showSelDate"
                     android:src="@drawable/date_project" />
             </LinearLayout>
 
@@ -85,14 +85,13 @@
                     style="@style/pro_main_item_tv"
                     android:text="完成日期" />
 
-                <TextView
+                <EditText
                     android:id="@+id/edt_jhjsrq"
                     style="@style/pro_main_item_edt" />
 
                 <ImageView
                     android:layout_width="@dimen/main_item_height"
                     android:layout_height="@dimen/main_item_height"
-                    android:onClick="showSelDateB"
                     android:src="@drawable/date_project" />
             </LinearLayout>
 
@@ -132,8 +131,8 @@
                 <Spinner
                     android:id="@+id/spi_rwlb"
                     style="@style/pro_main_item_edt"
+                    android:background="@drawable/task_catagory"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
                     android:layout_weight="5" />
             </LinearLayout>
 
@@ -164,7 +163,7 @@
             <include layout="@layout/div" />
 
             
-		<include layout="@layout/include_bottom"/>
+<include layout="@layout/include_bottom"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

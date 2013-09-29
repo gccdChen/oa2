@@ -25,6 +25,7 @@
 
                 <Gallery
                     style="@style/pro_main_item_edt"
+                    android:id="@+id/gal_pic"
                     android:layout_weight="5"
                     android:layout_width="0dp"
                     android:gravity="left" />

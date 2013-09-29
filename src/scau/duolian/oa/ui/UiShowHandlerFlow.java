@@ -97,9 +97,11 @@ public class UiShowHandlerFlow extends BaseUiAuth{
 					JSONArray array;
 					try {
 						array = new JSONArray(result);
-						JSONArray modelJsonArray = array.getJSONArray(0);
-						wddhs = JsonUtil.json2models("Wddh", modelJsonArray);
-						modelJsonArray = array.getJSONObject(1).getJSONArray("lzls");
+						
+//						JSONArray modelJsonArray = array.getJSONArray("date");
+//						wddhs = JsonUtil.json2models("Wddh", modelJsonArray);
+						
+						JSONArray modelJsonArray = array.getJSONObject(array.length()-1).getJSONArray("lzls");
 						lzlss = JsonUtil.json2models("Lzls", modelJsonArray);
 						update();
 					} catch (JSONException e) {
