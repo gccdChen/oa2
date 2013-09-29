@@ -61,6 +61,12 @@ public class BaseUi extends Activity {
 			menu.setVisibility(View.VISIBLE);
 		showingMenu = !showingMenu;
 	}
+	public void hideMenu(View view) {
+		// TODO Auto-generated method stub
+		if (showingMenu)
+			menu.setVisibility(View.GONE);
+		showingMenu = false;
+	}
 
 	@Override
 	protected void onDestroy() {

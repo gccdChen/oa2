@@ -16,18 +16,22 @@ public class ChangeUtil {
 	public static List<CalenderNote> Wdrcs2Cals(List<Wdrc> wdrcs){
 		List<CalenderNote> calenderNotes = new  ArrayList<CalenderNote>();
 		CalenderNote calenderNote = null;
+		String curdate = null;
 		for(int i = 0 ;i < wdrcs.size(); i++){
 			Wdrc wdrc = wdrcs.get(i);
-			String curdate = null;
 			String xdrq = DateUtil.strTostr(wdrc.xdsj);
-			if(!xdrq.equals(curdate)){
+			if(!curdate.equals(xdrq)){
+				if(calenderNote != null)
+					calenderNotes.add(calenderNote);
 				calenderNote = new CalenderNote(xdrq, new ArrayList<Wdrc>());
 				calenderNote.wdrcs.add(wdrc);
-			}
-			else if(DateUtil.strTostr(wdrc.xdsj).equals(curdate)){
+				curdate = xdrq;
+			}else{
 				calenderNote.wdrcs.add(wdrc);
 			}
 		}
+		if(calenderNote != null)
+			calenderNotes.add(calenderNote);
 		return calenderNotes;
 	}
 }

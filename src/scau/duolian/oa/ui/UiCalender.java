@@ -5,6 +5,7 @@ import java.util.List;
 import net.tsz.afinal.FinalDb;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ExpandableListView;
 import scau.duolian.oa.R;
 import scau.duolian.oa.adapter.CalenderNoteAdapter;
@@ -45,5 +46,9 @@ public class UiCalender extends BaseUiAuth{
 		// TODO Auto-generated method stub
 		List<Wdrc> wdrcs = db.findAll(Wdrc.class, "xdsj");
 		return ChangeUtil.Wdrcs2Cals(wdrcs);
+	}
+	
+	public void addCalender(View view){
+		overlay(UiAddCalender.class);
 	}
 }

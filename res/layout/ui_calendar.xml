@@ -46,18 +46,23 @@
 	            android:id="@+id/btn_add_task"
 	            android:layout_width="40dp"
 	            android:layout_height="40dp"
+	            android:onClick="addCalender"
 	            android:background="@drawable/add_btn" />
 	    </LinearLayout>
-	    
+	   <View 
+	       android:id="@+id/view3"
+	       style="@style/main_boder"
+	       android:layout_below="@id/ll_1"
+		/>
 	<ExpandableListView 
 	    android:id="@+id/content"
-	    android:layout_below="@id/ll_1"
+	    android:layout_below="@id/view3"
 	    android:layout_height="match_parent"
 	    android:layout_width="match_parent">
 	</ExpandableListView>
 	  <scau.duolian.oa.widget.MenuWidget
       android:id="@+id/menu"
-      android:layout_below="@id/ll_1"
+      android:layout_below="@id/view3"
       android:layout_marginLeft="20dp"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content" 

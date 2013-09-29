@@ -44,7 +44,7 @@
                     android:maxEms="12"
                     android:text="任务名称" />
 
-                <TextView
+                <EditText
                     android:id="@+id/tv_title"
                     style="@style/pro_main_item_edt"
                     android:layout_weight="5"
@@ -64,6 +64,7 @@
                     android:text="开始日期" />
 
                 <EditText
+                   
                     android:id="@+id/edt_jhksrq"
                     android:inputType="date"
                     style="@style/pro_main_item_edt" />
@@ -87,6 +88,7 @@
 
                 <EditText
                     android:id="@+id/edt_jhjsrq"
+                    android:inputType="date"
                     style="@style/pro_main_item_edt" />
 
                 <ImageView
@@ -105,15 +107,15 @@
                 <TextView
                     style="@style/pro_main_item_tv"
                     android:text="责任人" />
-
-                 <EditText
-                    android:id="@+id/edt_zrr"
+				    <EditText
+                    android:id="@+id/edt_jhjsrq"
+                    android:inputType="date"
                     style="@style/pro_main_item_edt" />
 
                 <ImageView
                     android:layout_width="@dimen/main_item_height"
                     android:layout_height="@dimen/main_item_height"
-                    android:src="@drawable/date_project" />
+                    android:src="@drawable/person" />
             </LinearLayout>
 
             <include layout="@layout/div" />
@@ -126,13 +128,15 @@
                 <TextView
                     style="@style/pro_main_item_tv"
                     android:text="任务类别" />
+                <EditText
+                    android:id="@+id/edt_jhjsrq"
+                    android:inputType="date"
+                    style="@style/pro_main_item_edt" />
 
-                <Spinner
-                    android:id="@+id/spi_rwlb"
-                    style="@style/pro_main_item_edt"
-                    android:background="@drawable/task_catagory"
-                    android:layout_width="0dp"
-                    android:layout_weight="5" />
+                <ImageView
+                    android:layout_width="@dimen/main_item_height"
+                    android:layout_height="@dimen/main_item_height"
+                    android:src="@drawable/top_arr" />
             </LinearLayout>
 
             <include layout="@layout/div" />

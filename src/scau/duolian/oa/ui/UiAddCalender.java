@@ -1,5 +1,6 @@
 package scau.duolian.oa.ui;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import net.tsz.afinal.FinalDb;
@@ -49,6 +50,7 @@ public class UiAddCalender extends BaseUiAuth{
 		Intent intent = getIntent();
 		if(!intent.hasExtra("id"))
 			return ;
+		((TextView)findViewById(R.id.tv_type)).setText("编辑记事");
 		id = intent.getStringExtra("id");
 		Wdrc wdrc = db.findById(id, Wdrc.class);
 		
@@ -59,7 +61,7 @@ public class UiAddCalender extends BaseUiAuth{
 	}
 
 	public void showSelDate(View view){
-		Date date = new Date();
+		Calendar date = Calendar.getInstance();
 		DatePickerDialog dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 			
 			@Override
@@ -67,10 +69,11 @@ public class UiAddCalender extends BaseUiAuth{
 				// TODO Auto-generated method stub
 				edt_begintime.setText(""+year+"-"+monthOfYear+"-"+dayOfMonth);
 			}
-		}, date.getYear(), date.getMonth(), date.getDate());
+		}, date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));
+		dialog.show();
 	}
 	public void showSelDateB(View view){
-		Date date = new Date();
+		Calendar date = Calendar.getInstance();
 		DatePickerDialog dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 			
 			@Override
@@ -78,7 +81,8 @@ public class UiAddCalender extends BaseUiAuth{
 				// TODO Auto-generated method stub
 				edt_remind_time.setText(""+year+"-"+monthOfYear+"-"+dayOfMonth);
 			}
-		}, date.getYear(), date.getMonth(), date.getDate());
+		},date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH));
+		dialog.show();
 	}
 	
 	//btn

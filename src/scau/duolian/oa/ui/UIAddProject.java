@@ -3,14 +3,13 @@ package scau.duolian.oa.ui;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import net.tsz.afinal.FinalDb;
 import net.tsz.afinal.http.AjaxParams;
 import scau.duolian.oa.R;
-import scau.duolian.oa.adapter.MutiSelHbAdapter;
-import scau.duolian.oa.adapter.SelHbAdapter;
 import scau.duolian.oa.base.BaseMessage;
 import scau.duolian.oa.base.BaseUiAuth;
 import scau.duolian.oa.base.C;
@@ -32,9 +31,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -138,8 +134,8 @@ public class UIAddProject extends BaseUiAuth {
 		params.put("jhjsrq", "" + DateUtil.strToTime(jhjsrq.getText().toString()).getTime());
 
 		params.put("fzr", fzr.getText().toString());
-		params.put("cy", cy.getText().toString());
-		params.put("gcy", gcy.getText().toString());
+		params.put("cy", selcyids);
+		params.put("gcy", selgcyids);
 
 		params.put("xmlb", "" + spi_xmlb.getSelectedItemPosition());
 		params.put("status", "" + spi_status.getSelectedItemPosition());
@@ -245,27 +241,33 @@ public class UIAddProject extends BaseUiAuth {
 	}
 
 	Dialog dialog2 = null;
-	MutiSelHbAdapter adapter2 = null;
-	boolean selgcys = false;
+	boolean selcys = false;
 
+	Set<Wdhb> sels_cys = new HashSet<Wdhb>();
+	Set<Wdhb> sels_gcys = new HashSet<Wdhb>();
 	public void selPartners(View view) {
 		if (dialog2 == null) {
-			dialog2 = new Dialog(this);
-
+			dialog2 = new Dialog(this,R.style.scau_dialog);
 			View v = LayoutInflater.from(this).inflate(R.layout.dialog_sel_hb, null);
+			dialog2.setContentView(v);
 			ViewGroup layout = (ViewGroup) v.findViewById(R.id.ll_1);
 
-			ListView listView = new ListView(this);
-
-			if (view.getId() == R.id.btn_sel_gcys) {
-				adapter2 = new MutiSelHbAdapter(this, wdhbs);
-				selgcys = true;
-			} else {
-				adapter2 = new MutiSelHbAdapter(this, wdhbs);
+			if (view.getId() == R.id.btn_sel_members) 
+				selcys = true;
+			else if(view.getId() == R.id.btn_sel_gcys)
+				selcys = false;
+			for(int i =0 ;i<wdhbs.size();i++){
+				final Wdhb wdhb = wdhbs.get(i);
+				TextView tv_name = new TextView(this);
+				tv_name.setText(wdhb.name);
+				tv_name.setOnClickListener(new MyOnClickListenter(tv_name, wdhb, selcys));
+				if(selcys && sels_cys.contains(wdhb)){
+					tv_name.setBackgroundColor(0xFFFFFFFF);
+				}else if(!selcys && sels_gcys.contains(wdhb)){
+					tv_name.setBackgroundColor(0xFF0000FF);
+				}
+				layout.addView(tv_name);
 			}
-			listView.setAdapter(adapter2);
-			layout.addView(listView);
-			dialog.setContentView(v);
 
 			Button btn_sure = new Button(this);
 			btn_sure.setText("确认");
@@ -275,39 +277,65 @@ public class UIAddProject extends BaseUiAuth {
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					StringBuffer selnames = new StringBuffer();
-					List<Wdhb> list = adapter2.sels;
-					if (selgcys)
-						selgcyids = "";
-					else
-						selcyids = "";
-
-					for (int i = 0; i < list.size(); i++) {
-						if (i == list.size() - 1) {
-							selnames.append(list.get(i).name);
-							if (selgcys)
-								selgcyids += list.get(i).id;
-							else
-								selcyids += list.get(i).id;
-						} else {
-							selnames.append(list.get(i).name + ",");
-							if (selgcys)
-								selgcyids += list.get(i).id + ",";
-							else
-								selcyids += list.get(i).id + ",";
+					if (selcys){
+						for(Wdhb wdhb : sels_cys){
+							selcyids += wdhb.id+",";
+							selnames.append( wdhb.name+",");
 						}
 					}
-
-					if (selgcys)
-						gcy.setText(selnames);
-					else
-						cy.setText(selnames);
-
-					if (dialog2 != null)
+					else{
+						for(Wdhb wdhb : sels_cys){
+							selgcyids += wdhb.id+",";
+							selnames.append( wdhb.name+",");
+						}
+					}
+					if(selnames.length()>2){
+						if (!selcys)
+							gcy.setText(selnames.substring(0, selnames.length()-1));
+						else
+							cy.setText(selnames.substring(0, selnames.length()-1));
+					}else{
+						if (!selcys)
+							gcy.setText("");
+						else
+							cy.setText("");
+					}
+					if (dialog2 != null){
 						dialog2.dismiss();
+						dialog2 = null;
+					}
 				}
 			});
+			layout.addView(btn_sure);
 		}
-		dialog.show();
+		dialog2.show();
+	}
+	
+	class MyOnClickListenter implements View.OnClickListener{
+		private TextView view = null;
+		private Wdhb wdhb = null;
+		private boolean selcys = true;
+
+		public MyOnClickListenter(TextView view, Wdhb wdhb, boolean selcys) {
+			super();
+			this.view = view;
+			this.wdhb = wdhb;
+			this.selcys = selcys;
+		}
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Set<Wdhb> sels = selcys?sels_cys:sels_gcys;
+			if(sels.contains(wdhb)){
+				view.setBackgroundColor(0xFFFFFFFF);
+				sels.remove(wdhb);
+			}else{
+				view.setBackgroundColor(0xFF0000FF);
+				sels.add(wdhb);
+			}
+		}
+		
 	}
 
 	public void doForbidden(View view) {

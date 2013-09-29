@@ -19,6 +19,7 @@
             android:layout_marginLeft="@dimen/top_height" />
 
         <TextView
+            android:id="@+id/tv_type"
             android:layout_width="match_parent"
             style="@style/top_tv"
             android:text="新建记事" />

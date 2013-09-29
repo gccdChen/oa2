@@ -29,6 +29,7 @@
             style="@style/top_iv"
             android:layout_alignParentRight="true"
             android:scaleType="fitXY"
+            android:onClick="addToCalender"
             android:src="@drawable/calendar_btn" />
 
         <ImageView
