@@ -30,6 +30,7 @@
 		    style="@style/top_iv"
 		    android:src="@drawable/top_position"
 		    android:layout_alignParentRight="true"
+		    android:onClick="signin"
 		    />
     </RelativeLayout>
 <LinearLayout

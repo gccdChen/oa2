@@ -3,11 +3,23 @@ package scau.duolian.oa.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.tsz.afinal.FinalDb;
+import net.tsz.afinal.http.AjaxParams;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import net.tsz.afinal.FinalDb;
-import net.tsz.afinal.http.AjaxParams;
+import scau.duolian.oa.R;
+import scau.duolian.oa.adapter.CommentAdapter;
+import scau.duolian.oa.adapter.ShowFlowAdapter;
+import scau.duolian.oa.base.BaseMessage;
+import scau.duolian.oa.base.BaseUiAuth;
+import scau.duolian.oa.base.C;
+import scau.duolian.oa.base.MyCallBack;
+import scau.duolian.oa.model.Wddh;
+import scau.duolian.oa.model.Wdlc;
+import scau.duolian.oa.util.JsonUtil;
+import scau.duolian.oa.util.WidgetUtil;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,17 +28,6 @@ import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import scau.duolian.oa.R;
-import scau.duolian.oa.adapter.CommentAdapter;
-import scau.duolian.oa.adapter.ShowFlowAdapter;
-import scau.duolian.oa.base.BaseMessage;
-import scau.duolian.oa.base.BaseUiAuth;
-import scau.duolian.oa.base.C;
-import scau.duolian.oa.base.MyCallBack;
-import scau.duolian.oa.model.Lzls;
-import scau.duolian.oa.model.Wddh;
-import scau.duolian.oa.model.Wdlc;
-import scau.duolian.oa.util.JsonUtil;
 
 /**
  *  查看/编辑 流程
@@ -70,6 +71,21 @@ public class UiShowHandlerFlow extends BaseUiAuth{
 		elv_content = (ExpandableListView) findViewById(R.id.elv_content);
 		adapter = new ShowFlowAdapter(this, wdlc, db, wddhs);
 		elv_content.setAdapter(adapter);
+		
+		WidgetUtil.setListViewHeightBasedOnChildren(elv_content);
+		elv_content.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+			public void onGroupExpand(int groupPosition) {
+				WidgetUtil.setListViewHeightBasedOnChildren(elv_content);
+			}
+		});
+
+		elv_content.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+			public void onGroupCollapse(int groupPosition) {
+				WidgetUtil.setListViewHeightBasedOnChildren(elv_content);
+			}
+		});
 		
 		lv_comments = (ListView) findViewById(R.id.lv_comments);
 		adapter2 = new CommentAdapter(this, wddhs);
