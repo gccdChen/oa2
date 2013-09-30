@@ -111,6 +111,7 @@ public class AppUtil {
 		try {
 			jsonObject = new JSONObject(jsonStr);
 			if (jsonObject != null) {
+				message.orgJson = jsonObject;
 				message.setCode(jsonObject.getInt("code"));
 				message.setMessage(jsonObject.getString("desc"));
 				message.setResult(jsonObject.getString("data"));

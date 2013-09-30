@@ -21,6 +21,7 @@ public class BaseMessage {
 	private String resultSrc;
 	private Map<String, Object> resultMap;
 	private Map<String, ArrayList<? extends Object>> resultList;
+	public JSONObject orgJson =null;
 
 	public BaseMessage() {
 		this.resultMap = new HashMap<String, Object>();

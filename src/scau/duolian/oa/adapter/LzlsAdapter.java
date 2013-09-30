@@ -16,30 +16,35 @@ import android.widget.TextView;
 
 public class LzlsAdapter extends BaseAdapter{
 	private BaseUi baseUi = null;
-	private List<Lzls> lzlss = null;
+	public List<Lzls> lzlss = null;
 	private LayoutInflater inflater = null;
-	public LzlsAdapter(BaseUi baseUi, List<Lzls> lzlss) {
+	public LzlsAdapter(BaseUi baseUi) {
 		super();
 		this.baseUi = baseUi;
-		this.lzlss = lzlss;
 		inflater = LayoutInflater.from(baseUi);
 	}
 
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
+		if(lzlss==null)
+			return 0;
 		return lzlss.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
 		// TODO Auto-generated method stub
+		if(lzlss==null)
+			return 0;
 		return lzlss.get(arg0);
 	}
 
 	@Override
 	public long getItemId(int position) {
 		// TODO Auto-generated method stub
+		if(lzlss==null)
+			return 0;
 		return Long.parseLong(lzlss.get(position).id);
 	}
 
@@ -63,14 +68,19 @@ public class LzlsAdapter extends BaseAdapter{
 			holder.tv_name = (TextView) view.findViewById(R.id.tv_name);
 			holder.tv_content = (TextView) view.findViewById(R.id.tv_content);
 			holder.tv_time = (TextView) view.findViewById(R.id.tv_time);
+			view.setTag(holder);
 		}else{
 			holder = (ViewHolder) view.getTag();
 		}
 		Lzls lzls = lzlss.get(position);
-		holder.tv_name.setText(lzls.author);
-		holder.tv_step.setText("["+position+1+"]");
-		holder.tv_content.setText(lzls.bz);
-		holder.tv_time.setText(DateUtil.longStrToStr(lzls.dt));
+		if(lzls == null)
+			return null;
+		else{
+			holder.tv_name.setText(""+lzls.author);
+			holder.tv_step.setText("["+position+1+"]");
+			holder.tv_content.setText(""+lzls.bz);
+			holder.tv_time.setText(DateUtil.longStrToStr(lzls.dt));
+		}
 		return view;
 	}
 	

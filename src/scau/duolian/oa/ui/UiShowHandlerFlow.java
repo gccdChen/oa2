@@ -10,6 +10,7 @@ import net.tsz.afinal.FinalDb;
 import net.tsz.afinal.http.AjaxParams;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
@@ -48,7 +49,6 @@ public class UiShowHandlerFlow extends BaseUiAuth{
 	
 	
 	private List<Wddh> wddhs = new ArrayList<Wddh>();
-	private List<Lzls> lzlss = new ArrayList<Lzls>();
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -68,7 +68,7 @@ public class UiShowHandlerFlow extends BaseUiAuth{
 		edt_bz = (TextView) findViewById(R.id.edt_bz);
 		
 		elv_content = (ExpandableListView) findViewById(R.id.elv_content);
-		adapter = new ShowFlowAdapter(this, wdlc, db, wddhs,lzlss);
+		adapter = new ShowFlowAdapter(this, wdlc, db, wddhs);
 		elv_content.setAdapter(adapter);
 		
 		lv_comments = (ListView) findViewById(R.id.lv_comments);
@@ -98,11 +98,12 @@ public class UiShowHandlerFlow extends BaseUiAuth{
 					try {
 						array = new JSONArray(result);
 						
-//						JSONArray modelJsonArray = array.getJSONArray("date");
-//						wddhs = JsonUtil.json2models("Wddh", modelJsonArray);
+						JSONArray modelJsonArray = new JSONArray(result);
+						wddhs = JsonUtil.json2models("Wddh", modelJsonArray);
 						
-						JSONArray modelJsonArray = array.getJSONObject(array.length()-1).getJSONArray("lzls");
-						lzlss = JsonUtil.json2models("Lzls", modelJsonArray);
+						JSONArray mo = message.orgJson.getJSONArray("lzls");
+						adapter.adapter1.lzlss = JsonUtil.json2models("Lzls", mo);
+						Log.i("adapter.adapter1.lzlss",""+ adapter.adapter1.lzlss.size());
 						update();
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block

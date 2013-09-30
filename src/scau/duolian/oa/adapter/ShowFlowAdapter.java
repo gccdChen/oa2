@@ -35,24 +35,24 @@ public class ShowFlowAdapter extends BaseExpandableListAdapter{
 	private List<Wddh> wddhs = null;
 	private Wdhb wdhb = null;
 	private Wdlclx wdlclx = null;
-	private List<Lzls> lzlss = null;
 	
-	private LzlsAdapter adapter1 = null;
+	public LzlsAdapter adapter1 = null;
 	
-	public ShowFlowAdapter(BaseUi baseUi, Wdlc wdlc, FinalDb db,List<Wddh> wddhs,List<Lzls> lzlss) {
+	public ShowFlowAdapter(BaseUi baseUi, Wdlc wdlc, FinalDb db,List<Wddh> wddhs) {
 		super();
 		this.baseUi = baseUi;
 		this.wdlc = wdlc;
 		this.wddhs = wddhs;
 		this.db = db;
-		this.lzlss = lzlss;
 		inflater = LayoutInflater.from(baseUi);
 		wdlclx = db.findById(wdlc.type, Wdlclx.class);
 		wdhb = db.findById(wdlc.author, Wdhb.class);
+		adapter1 = new LzlsAdapter(baseUi);
 	}
 	
 	public void notifiThis(){
-		adapter1.notifyDataSetChanged();
+		if(adapter1!=null)
+			adapter1.notifyDataSetChanged();
 	}
 	
 	@Override
@@ -85,7 +85,6 @@ public class ShowFlowAdapter extends BaseExpandableListAdapter{
 		}else if(groupPosition == 1){
 			LinearLayout view = new LinearLayout(baseUi);
 			ListView listView = new ListView(baseUi);
-			adapter1 = new LzlsAdapter(baseUi, lzlss);
 			listView.setAdapter(adapter1);
 			view.addView(listView);
 			convertView = view;
